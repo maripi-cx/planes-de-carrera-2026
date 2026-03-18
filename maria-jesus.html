@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación María Jesús Ibarra — IC2.0 — Q1 2026</title>
+<style>
+  #lock{position:fixed;inset:0;background:#f9f9f7;display:flex;align-items:center;justify-content:center;z-index:999}
+  #lock-box{background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:2rem;width:320px;text-align:center}
+  #lock-box p{font-size:15px;font-weight:500;color:#1a1a1a;margin-bottom:6px}
+  #lock-box small{font-size:13px;color:#888;display:block;margin-bottom:1.25rem}
+  #lock-input{width:100%;padding:10px 14px;font-size:15px;border:.5px solid #e0e0da;border-radius:8px;outline:none;text-align:center;letter-spacing:.12em;text-transform:uppercase;background:#fafafa;color:#1a1a1a;margin-bottom:10px}
+  #lock-input:focus{border-color:#185FA5}
+  #lock-btn{width:100%;padding:10px;background:#185FA5;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
+  #lock-btn:hover{background:#0C447C}
+  #lock-err{font-size:12px;color:#C62828;margin-top:8px;display:none}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f9f9f7;color:#1a1a1a;padding:2rem;max-width:820px;margin:0 auto}
+  .s{margin-bottom:2rem}
+  .sh{font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1.5px solid #e0e0da}
+  .card{background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:1rem 1.25rem}
+  .mc{background:#f5f5f2;border-radius:8px;padding:.85rem 1rem}
+  .ml{font-size:12px;color:#888;margin-bottom:3px}
+  .mv{font-size:22px;font-weight:500;color:#1a1a1a}
+  .ms{font-size:12px;color:#888;margin-top:2px}
+  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .bdg{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px}
+  .bg{background:#FFF8E1;color:#B8860B}
+  .bgg{background:#E8F5E9;color:#2E7D32}
+  .bb{background:#E6F1FB;color:#185FA5}
+  .row{display:flex;align-items:center;gap:10px}
+  .dl{font-size:13px;font-weight:500;color:#1a1a1a;min-width:220px}
+  .dbg{flex:1;height:7px;background:#f0f0ee;border-radius:4px;overflow:hidden}
+  .db{height:7px;border-radius:4px}
+  .dn{font-size:13px;font-weight:500;color:#1a1a1a;min-width:22px;text-align:right}
+  .hr{border:none;border-top:.5px solid #e8e8e4;margin:10px 0}
+  .blk{font-size:17px;font-weight:500;color:#1a1a1a;margin:14px 0 10px;border-bottom:.5px solid #e8e8e4;padding-bottom:6px}
+  .fb{font-size:13px;color:#666;line-height:1.6;border-left:2px solid #ddd;padding-left:12px;margin-top:8px}
+  .pn{width:30px;height:30px;border-radius:50%;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .p1{background:#E8F5E9;color:#2E7D32}
+  .p2{background:#FFF8E1;color:#B8860B}
+  .p3{background:#FFEBEE;color:#C62828}
+  .on{width:26px;height:26px;border-radius:50%;background:#E6F1FB;color:#185FA5;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .nb{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;background:#E8F5E9;color:#2E7D32;margin-left:6px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em}
+  .obj-new{border:.5px solid #A5D6A7;background:#F9FFF9}
+  @media print{body{background:#fff;padding:0}canvas{max-height:280px!important}.card{break-inside:avoid}.db,.mc,.bdg{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:600px){.g4{grid-template-columns:repeat(2,1fr)}.dl{min-width:140px;font-size:12px}}
+</style>
+</head>
+<body>
+
+<div id="lock">
+  <div id="lock-box">
+    <div style="width:48px;height:48px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:22px">🔒</div>
+    <p>Evaluación María Jesús Ibarra</p>
+    <small>Ingresa la clave para ver tu evaluación</small>
+    <input id="lock-input" type="password" placeholder="••••••" autocomplete="off" />
+    <button id="lock-btn" onclick="unlock()">Ver evaluación</button>
+    <div id="lock-err">Clave incorrecta. Intenta de nuevo.</div>
+  </div>
+</div>
+
+<div id="content" style="display:none">
+
+<div class="s">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem">
+    <div style="width:46px;height:46px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;color:#185FA5">MJ</div>
+    <div>
+      <p style="font-size:19px;font-weight:500;margin-bottom:2px">María Jesús Ibarra</p>
+      <p style="font-size:13px;color:#888"><strong>Customer Success Executive</strong></p>
+    </div>
+    <div style="margin-left:auto"><span class="bdg bb">Q1 2026</span></div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Resumen de evaluación</p>
+  <div class="g4" style="margin-bottom:10px">
+    <div class="mc"><div class="ml">Nota final</div><div class="mv">4.30</div><div class="ms">de 12</div></div>
+    <div class="mc"><div class="ml">Bloque WORK</div><div class="mv">4.25</div><div class="ms">50% ponderación</div></div>
+    <div class="mc"><div class="ml">Bloque DELIVER</div><div class="mv">4.0</div><div class="ms">20% ponderación</div></div>
+    <div class="mc"><div class="ml">Bloque BEHAVIOR</div><div class="mv">4.70</div><div class="ms">30% ponderación</div></div>
+  </div>
+
+  <div style="background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:1.25rem;margin-bottom:10px">
+    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#aaa;margin-bottom:4px">Radar de competencias</p>
+    <p style="font-size:12px;color:#bbb;margin-bottom:1rem">Haz clic en un punto para ir al feedback</p>
+    <canvas id="radar" style="max-height:340px;cursor:pointer"></canvas>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Detalle por dimensión</p>
+  <div class="card">
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <p class="blk">WORK — 50%</p>
+
+      <div id="gestion" class="row"><span class="dl">Gestión CS y autonomía</span><div class="dbg"><div class="db" style="width:42%;background:#2E7D32"></div></div><span class="dn">5</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">2.0</span></span></div>
+      <div class="fb">Gestionas una cartera grande con orden y seguimiento constante, asegurando continuidad en los casos y próximos pasos claros. Resuelves situaciones complejas de forma autónoma, incluyendo renovaciones, devoluciones y casos sensibles, sin depender de escalamiento operativo. Se nota criterio para levantar riesgos cuando corresponde, no por falta de capacidad sino por impacto. Además, has empezado a tomar ownership en iniciativas como el plan de partners, lo que muestra evolución en tu rol. Para consolidarte, necesitas empezar a proponer mejoras concretas desde lo que ves en tu cartera y empujarlas sin que te las pidan.</div>
+      <div class="hr"></div>
+
+      <div id="foco" class="row"><span class="dl">Foco en el cliente</span><div class="dbg"><div class="db" style="width:33%;background:#B8860B"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bg">1.3</span></span></div>
+      <div class="fb">Es una de tus mayores evoluciones del año. Hoy entiendes bien al cliente, su contexto y sus limitaciones, y logras acompañar de forma cercana y útil, especialmente en casos complejos. Se nota intención real de ayudar y adaptar tu gestión. La brecha está en la consistencia: no siempre logras traducir ese entendimiento en valor explícito durante la conversación. Hacer visible el "para qué le sirve esto" en cada interacción es lo que va a marcar la diferencia.</div>
+      <div class="hr"></div>
+
+      <div id="vision" class="row"><span class="dl">Visión integrada de la CX</span><div class="dbg"><div class="db" style="width:33%;background:#B8860B"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bg">1.3</span></span></div>
+      <div class="fb">Entiendes cómo funciona el cliente dentro de Chipax y cómo se conectan las distintas etapas. Participas bien en iniciativas transversales cuando están definidas y colaboras con otras áreas cuando se necesita. También logras ver cómo ciertas decisiones impactan la experiencia completa. Sin embargo, tu rol sigue siendo más de ejecución que de propuesta en este ámbito. Empezar a levantar mejoras desde lo que ves en tu cartera y compartirlas con otras áreas es el siguiente paso.</div>
+      <div class="hr"></div>
+
+      <div id="comercial" class="row"><span class="dl">Pensamiento Comercial</span><div class="dbg"><div class="db" style="width:42%;background:#2E7D32"></div></div><span class="dn">5</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">2.0</span></span></div>
+      <div class="fb">Has desarrollado una base comercial sólida, pasando de ejecutar tareas a tomar decisiones con criterio. Identificas oportunidades en tu cartera, trabajas upgrades y participas en iniciativas con lógica clara, lo que muestra evolución real. Ya no es solo detectar, también accionas. Aún no es un comportamiento completamente constante ni siempre se traduce en resultados visibles. Integrar esta mirada en cada interacción y hacer seguimiento a los resultados de lo que impulsas es lo que te va a hacer avanzar.</div>
+      <div class="hr"></div>
+
+      <div id="datos" class="row"><span class="dl">Uso de datos</span><div class="dbg"><div class="db" style="width:25%;background:#B8860B"></div></div><span class="dn">3</span><span style="min-width:52px;text-align:right"><span class="bdg bg">1.2</span></span></div>
+      <div class="fb">Conoces tus métricas y las usas para gestionar tu trabajo, lo que es una buena base. Has tenido avances puntuales, como en iniciativas donde usaste datos para tomar decisiones, lo que muestra potencial. Sin embargo, el uso sigue siendo más reactivo que sistemático, y el registro no siempre es consistente. Aún no hay un hábito de análisis de cartera propio. Empezar a registrar mejor y a mirar patrones en tus clientes de forma periódica es lo que te va a permitir tomar decisiones más estratégicas.</div>
+      <div class="hr"></div>
+
+      <div id="comunicacion" class="row"><span class="dl">Comunicación y empatía</span><div class="dbg"><div class="db" style="width:33%;background:#B8860B"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bg">1.3</span></span></div>
+      <div class="fb">Tu tono es una fortaleza clara: cercano, respetuoso y consistente, generando confianza en el cliente. Escuchas bien, validas contexto y adaptas tu comunicación según la situación, lo que ha sido un avance sostenido durante el año. También logras bajar la complejidad y acompañar sin generar fricción en escenarios sensibles. La brecha está en la estructura de las interacciones, donde aún falta consistencia en declarar el objetivo, validar antes de resolver y cerrar con claridad. Ordenar esa secuencia en cada conversación va a hacer que tu impacto sea mucho más claro para el cliente.</div>
+
+      <div class="hr" style="margin:12px 0 6px"></div>
+      <p class="blk">DELIVER — 20%</p>
+
+      <div id="eficiencia" class="row"><span class="dl">Eficiencia, priorización y planificación</span><div class="dbg"><div class="db" style="width:33%;background:#B8860B"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bg">1.3</span></span></div>
+      <div class="fb">Tienes una forma de trabajo ordenada y consistente. Usas bien tus herramientas, haces seguimiento y cumples plazos, lo que se refleja en una gestión confiable de tu cartera. Has logrado instalar una base sólida de organización personal. El siguiente paso es llevar esa misma lógica a espacios donde tengas que coordinar con otros o estructurar tareas más allá de tu propio trabajo.</div>
+      <div class="hr"></div>
+
+      <div id="agilidad" class="row"><span class="dl">Agilidad</span><div class="dbg"><div class="db" style="width:33%;background:#B8860B"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bg">1.3</span></span></div>
+      <div class="fb">Te adaptas bien a cambios de contexto y manejas situaciones complejas sin desordenarte. Sabes reorganizarte cuando aumenta la carga y responder de forma oportuna a los clientes. La agilidad está bien instalada a nivel individual. Hacer más visible cómo te estás reorganizando y usar eso para ajustar o mejorar formas de trabajo del equipo es lo que te va a hacer avanzar.</div>
+
+      <div class="hr" style="margin:12px 0 6px"></div>
+      <p class="blk">BEHAVIOR — 30%</p>
+
+      <div id="coachability" class="row"><span class="dl">Coachability</span><div class="dbg"><div class="db" style="width:42%;background:#2E7D32"></div></div><span class="dn">5</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">2.0</span></span></div>
+      <div class="fb">Recibes bien el feedback y lo aplicas, lo que se refleja en tu evolución durante el año. También tienes buen nivel de autodiagnóstico, identificando tus propias brechas con claridad. Se nota que conviertes observaciones en acciones concretas. Podrías comenzar a generar instancias de feedback con el resto del equipo de forma proactiva.</div>
+      <div class="hr"></div>
+
+      <div id="equipo" class="row"><span class="dl">Trabajo en equipo</span><div class="dbg"><div class="db" style="width:33%;background:#B8860B"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bg">1.3</span></span></div>
+      <div class="fb">Eres confiable y colaborativa dentro del equipo. Apoyas cuando se necesita, compartes herramientas y participas en iniciativas grupales, lo que genera un buen nivel de coordinación. El equipo puede contar contigo. Sin embargo, en varios espacios aún estás trabajando de forma más individual, especialmente en proyectos. Involucrar más activamente a otros desde el inicio y construir en conjunto te va a permitir generar mayor impacto.</div>
+      <div class="hr"></div>
+
+      <div id="growth" class="row"><span class="dl">Growth mindset</span><div class="dbg"><div class="db" style="width:42%;background:#2E7D32"></div></div><span class="dn">5</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">2.0</span></span></div>
+      <div class="fb">Tienes una actitud genuina de aprendizaje. Te cuestionas, reconoces errores con madurez y buscas mejorar de forma constante. Se nota evolución real durante el período y disposición a salir de tu zona de confort dentro del rol. Para seguir creciendo, necesitas empezar a buscar aprendizaje también fuera de tu equipo.</div>
+      <div class="hr"></div>
+
+      <div id="cultura" class="row"><span class="dl">Cultura Chipax</span><div class="dbg"><div class="db" style="width:42%;background:#2E7D32"></div></div><span class="dn">5</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">2.0</span></span></div>
+      <div class="fb">Vives la cultura en tu forma de trabajar. Eres responsable, confiable y aportas con mejoras concretas al equipo, como compartir herramientas o buenas prácticas. También tienes la capacidad de dar feedback con criterio, incluso hacia tu líder, lo que muestra madurez. Tu impacto es consistente y positivo. Hacer más visible ese aporte, especialmente reconociendo a otras personas del equipo, puede amplificar aún más ese impacto.</div>
+    </div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Top 3 prioridades este año</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p1">1</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Instalar el hábito de análisis de cartera con datos</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">El uso de datos hoy es reactivo. Empezar a mirar patrones en tu cartera de forma periódica te va a permitir detectar riesgos antes de que escalen y encontrar oportunidades con criterio, no por intuición.</p>
+      </div>
+    </div>
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p2">2</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Hacer visible el valor en cada interacción con el cliente</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Entiendes bien al cliente, pero no siempre eso queda explícito en la conversación. Ordenar la secuencia de cada interacción — declarar el objetivo, validar antes de resolver, cerrar con claridad — es lo que va a marcar la diferencia.</p>
+      </div>
+    </div>
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p3">3</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Proponer mejoras desde lo que ves en tu cartera</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Tienes contexto y criterio. El siguiente paso es pasar de ejecutar a proponer: levantar mejoras desde tu cartera, empujarlas sin que te las pidan y compartirlas con otras áreas cuando corresponda.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Objetivos anuales 2026</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="card">
+      <div class="row" style="margin-bottom:8px"><div class="on">1</div><p style="font-size:15px;font-weight:500">Calidad en interacciones — IQS</p></div>
+      <p style="font-size:13px;color:#666;line-height:1.5">IQS trimestral de 4,5 en Q1, 4,5 en Q2, 4,6 en Q3 y 4,6 en Q4 en las interacciones con clientes, cumpliendo los estándares definidos de calidad, tono y procesos, manteniendo un desempeño consistente y afinando progresivamente la calidad durante el año.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Foco en el cliente / Usuario</p>
+    </div>
+    <div class="card">
+      <div class="row" style="margin-bottom:8px"><div class="on">2</div><p style="font-size:15px;font-weight:500">Iniciativas y mejoras asociadas al plan de partners</p></div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Liderar, ejecutar y documentar iniciativas y/o mejoras asociadas al plan de partners desde Customer Success, mediante al menos 2 iniciativas y/o experimentos trimestrales, midiendo su impacto y aprendizajes.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Gestión y ejecución de proyectos</p>
+    </div>
+    <div class="card obj-new">
+      <div class="row" style="margin-bottom:8px">
+        <div class="on" style="background:#E8F5E9;color:#2E7D32">3</div>
+        <p style="font-size:15px;font-weight:500">Análisis de cartera con hallazgo y acción <span class="nb">nuevo</span></p>
+      </div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Analizar su cartera de clientes al menos una vez por trimestre, identificando patrones de riesgo u oportunidades, y proponer al menos 1 acción concreta por Q basada en ese análisis. 3 análisis (1 por Q) documentados en Notion, cada uno con hallazgo principal y acción propuesta.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Foco en el cliente / Usuario</p>
+      <div style="font-size:13px;color:#555;line-height:1.6;border-left:2px solid #A5D6A7;padding-left:12px;margin-top:12px;padding:10px 12px;border-radius:0 6px 6px 0;background:#F9FFF9">
+        El uso de datos en CS hoy es reactivo. Instalar el hábito de analizar la propia cartera permite detectar señales de riesgo antes de que escalen y encontrar oportunidades de expansión con criterio, no por intuición.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:#E6F1FB;border:.5px solid #85B7EB;border-radius:12px;padding:1.75rem 1.5rem;text-align:center">
+  <p style="font-size:22px;font-weight:500;color:#042C53;margin-bottom:10px">¡Nuevo nivel alcanzado! 🎉</p>
+  <p style="font-size:42px;font-weight:500;color:#042C53;margin-bottom:4px">IC1.3</p>
+  <p style="font-size:15px;color:#185FA5;margin-bottom:16px">Customer Success Executive</p>
+  <div style="width:40px;height:1px;background:#85B7EB;margin:0 auto 16px"></div>
+  <p style="font-size:14px;color:#185FA5;line-height:1.7;max-width:500px;margin:0 auto">Jesu, lo lograste 🙌 Esta evaluación refleja una evolución real: pasaste de ejecutar tareas a tomar decisiones con criterio, gestionar tu cartera con autonomía y empezar a proponer. Eso es exactamente lo que define IC1.3. Muy bien ganado ✨</p>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+function unlock(){
+  var v=document.getElementById('lock-input').value.trim().toUpperCase();
+  var err=document.getElementById('lock-err');
+  if(v==='CURANIPE'){
+    document.getElementById('lock').style.display='none';
+    document.getElementById('content').style.display='block';
+    initChart();
+  } else {
+    err.style.display='block';
+    document.getElementById('lock-input').value='';
+    document.getElementById('lock-input').focus();
+  }
+}
+document.getElementById('lock-input').addEventListener('keydown',function(e){if(e.key==='Enter')unlock();});
+
+var chartInit=false;
+function initChart(){
+  if(chartInit)return; chartInit=true;
+  var labels=['Gestión CS','Foco en cliente','Visión CX','Pens. Comercial','Uso de datos','Comunicación','Eficiencia','Agilidad','Coachability','Trabajo en equipo','Growth mindset','Cultura Chipax'];
+  var sectionIds=['gestion','foco','vision','comercial','datos','comunicacion','eficiencia','agilidad','coachability','equipo','growth','cultura'];
+  var data2026=[5,4,4,5,3,4,4,4,5,4,5,5];
+  var data2025=[1,2,2,1,1,2,1,2,2,2,2,2];
+  var gridC='rgba(0,0,0,0.08)';
+  var labelC='#666';
+  var canvas=document.getElementById('radar');
+  var chart=new Chart(canvas,{
+    type:'radar',
+    data:{
+      labels:labels,
+      datasets:[
+        {label:'2026',data:data2026,borderColor:'#185FA5',backgroundColor:'rgba(24,95,165,0.12)',borderWidth:2,pointBackgroundColor:'#185FA5',pointRadius:4,pointHoverRadius:6},
+        {label:'2025',data:data2025,borderColor:'#B8860B',backgroundColor:'rgba(184,134,11,0.08)',borderWidth:1.5,borderDash:[4,3],pointBackgroundColor:'#B8860B',pointRadius:3}
+      ]
+    },
+    options:{
+      responsive:true,
+      scales:{r:{min:0,max:8,ticks:{stepSize:2,color:labelC,font:{size:11},backdropColor:'transparent'},grid:{color:gridC},angleLines:{color:gridC},pointLabels:{color:labelC,font:{size:11}}}},
+      plugins:{
+        legend:{labels:{color:labelC,font:{size:12},boxWidth:14,padding:16}},
+        tooltip:{callbacks:{title:function(items){return items[0]?items[0].label:'';}}}
+      }
+    }
+  });
+  canvas.addEventListener('click',function(e){
+    var pts=chart.getElementsAtEventForMode(e,'point',{intersect:true},false);
+    if(!pts.length)return;
+    var el=document.getElementById(sectionIds[pts[0].index]);
+    if(el){
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.style.transition='background 0.3s';
+      el.style.background='#E6F1FB';
+      setTimeout(function(){el.style.background='';},1500);
+    }
+  });
+}
+</script>
+</body>
+</html>
