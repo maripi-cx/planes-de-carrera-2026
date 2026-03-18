@@ -1,1 +1,1 @@
-# planes-de-carrera-2026
+# Planes de Carrera CX 2026
