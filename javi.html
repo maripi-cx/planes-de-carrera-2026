@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación Javiera Gómez — IC1.2 — 2026</title>
+<style>
+  #lock{position:fixed;inset:0;background:#f9f9f7;display:flex;align-items:center;justify-content:center;z-index:999}
+  #lock-box{background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:2rem;width:320px;text-align:center}
+  #lock-box p{font-size:15px;font-weight:500;color:#1a1a1a;margin-bottom:6px}
+  #lock-box small{font-size:13px;color:#888;display:block;margin-bottom:1.25rem}
+  #lock-input{width:100%;padding:10px 14px;font-size:15px;border:.5px solid #e0e0da;border-radius:8px;outline:none;text-align:center;letter-spacing:.12em;text-transform:uppercase;background:#fafafa;color:#1a1a1a;margin-bottom:10px}
+  #lock-input:focus{border-color:#185FA5}
+  #lock-btn{width:100%;padding:10px;background:#185FA5;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
+  #lock-btn:hover{background:#0C447C}
+  #lock-err{font-size:12px;color:#C62828;margin-top:8px;display:none}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f9f9f7;color:#1a1a1a;padding:2rem;max-width:820px;margin:0 auto}
+  .s{margin-bottom:2rem}
+  .sh{font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1.5px solid #e0e0da}
+  .card{background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:1rem 1.25rem}
+  .mc{background:#f5f5f2;border-radius:8px;padding:.85rem 1rem}
+  .ml{font-size:12px;color:#888;margin-bottom:3px}
+  .mv{font-size:22px;font-weight:500;color:#1a1a1a}
+  .ms{font-size:12px;color:#888;margin-top:2px}
+  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .bdg{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px}
+  .bg{background:#FFF8E1;color:#B8860B}
+  .bgg{background:#E8F5E9;color:#2E7D32}
+  .bb{background:#E6F1FB;color:#185FA5}
+  .row{display:flex;align-items:center;gap:10px}
+  .dl{font-size:13px;font-weight:500;color:#1a1a1a;min-width:220px}
+  .dbg{flex:1;height:7px;background:#f0f0ee;border-radius:4px;overflow:hidden}
+  .db{height:7px;border-radius:4px}
+  .dn{font-size:13px;font-weight:500;color:#1a1a1a;min-width:22px;text-align:right}
+  .hr{border:none;border-top:.5px solid #e8e8e4;margin:10px 0}
+  .blk{font-size:17px;font-weight:500;color:#1a1a1a;margin:14px 0 10px;border-bottom:.5px solid #e8e8e4;padding-bottom:6px}
+  .fb{font-size:13px;color:#666;line-height:1.6;border-left:2px solid #ddd;padding-left:12px;margin-top:8px}
+  .pn{width:30px;height:30px;border-radius:50%;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .p1{background:#E8F5E9;color:#2E7D32}
+  .p2{background:#FFF8E1;color:#B8860B}
+  .p3{background:#FFEBEE;color:#C62828}
+  .on{width:26px;height:26px;border-radius:50%;background:#E6F1FB;color:#185FA5;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .nb{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;background:#E8F5E9;color:#2E7D32;margin-left:6px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em}
+  .obj-new{border:.5px solid #A5D6A7;background:#F9FFF9}
+  @media print{body{background:#fff;padding:0}canvas{max-height:280px!important}.card{break-inside:avoid}.db,.mc,.bdg{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:600px){.g4{grid-template-columns:repeat(2,1fr)}.dl{min-width:140px;font-size:12px}}
+</style>
+</head>
+<body>
+
+<div id="lock">
+  <div id="lock-box">
+    <div style="width:48px;height:48px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:22px">🔒</div>
+    <p>Evaluación Javiera Gómez</p>
+    <small>Ingresa la clave para ver tu evaluación</small>
+    <input id="lock-input" type="password" placeholder="••••••" autocomplete="off" />
+    <button id="lock-btn" onclick="unlock()">Ver evaluación</button>
+    <div id="lock-err">Clave incorrecta. Intenta de nuevo.</div>
+  </div>
+</div>
+
+<div id="content" style="display:none">
+
+<div class="s">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem">
+    <div style="width:46px;height:46px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;color:#185FA5">JG</div>
+    <div>
+      <p style="font-size:19px;font-weight:500;margin-bottom:2px">Javiera Gómez</p>
+      <p style="font-size:13px;color:#888"><strong>Customer Support Executive</strong></p>
+    </div>
+    <div style="margin-left:auto"><span class="bdg bb">2026</span></div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Resumen de evaluación</p>
+  <div class="g4" style="margin-bottom:10px">
+    <div class="mc"><div class="ml">Nota final</div><div class="mv">3.80</div><div class="ms">de 4</div></div>
+    <div class="mc"><div class="ml">Bloque WORK</div><div class="mv">3.45</div><div class="ms">50% ponderación</div></div>
+    <div class="mc"><div class="ml">Bloque DELIVER</div><div class="mv">3.00</div><div class="ms">20% ponderación</div></div>
+    <div class="mc"><div class="ml">Bloque BEHAVIOR</div><div class="mv">3.70</div><div class="ms">30% ponderación</div></div>
+  </div>
+
+  <div style="background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:1.25rem;margin-bottom:10px">
+    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#aaa;margin-bottom:4px">Radar de competencias</p>
+    <p style="font-size:12px;color:#bbb;margin-bottom:1rem">Haz clic en un punto para ir al feedback</p>
+    <canvas id="radar" style="max-height:340px;cursor:pointer"></canvas>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Detalle por dimensión</p>
+  <div class="card">
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <p class="blk">WORK — 50%</p>
+
+      <!-- Gestión: 4 → IC1.3 verde -->
+      <div id="gestion" class="row"><span class="dl">Gestión de Soporte y autonomía</span><div class="dbg"><div class="db" style="width:100%;background:#2E7D32"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC1.3</span></span></div>
+      <div class="fb">Gestionas conversaciones complejas con autonomía real y sostienes el ownership del caso hasta su resolución. Los IQS muestran buen diagnóstico técnico y capacidad para manejar escenarios con múltiples variables sin necesidad de supervisión constante. Además, la reorganización que hiciste del Centro de Ayuda muestra que tu impacto va más allá del chat.<br><br>El siguiente paso es transferir más activamente ese conocimiento al equipo. Ya manejas muy bien varios temas, y compartir cómo los abordas puede ayudar a que el resto también suba su nivel.</div>
+      <div class="hr"></div>
+
+      <!-- Foco en cliente: 3 → IC1.2 amarillo -->
+      <div id="foco" class="row"><span class="dl">Foco en el cliente</span><div class="dbg"><div class="db" style="width:75%;background:#B8860B"></div></div><span class="dn">3</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.2</span></span></div>
+      <div class="fb">Tu CSAT habla por sí solo: promedio anual sobre el 95%, con varios meses en 100%. Eso refleja una forma de operar consistente, no casos aislados.<br><br>Aparece una oportunidad puntual: a veces entregas la solución correcta sin confirmar primero qué necesitaba exactamente el cliente. Un pequeño ajuste que puede marcar diferencia es hacer una pregunta de precisión antes de explicar, para asegurar que la respuesta esté completamente alineada con lo que el cliente quiere resolver.</div>
+      <div class="hr"></div>
+
+      <!-- Uso de datos: 4 → IC1.3 verde -->
+      <div id="datos" class="row"><span class="dl">Uso de datos</span><div class="dbg"><div class="db" style="width:100%;background:#2E7D32"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC1.3</span></span></div>
+      <div class="fb">Generas reportes mensuales del Centro de Ayuda, identificas los artículos más visitados y usas esa información para tomar decisiones concretas. También conectas lo que ves en las conversaciones con clientes con brechas de documentación.<br><br>El siguiente paso es empezar a cruzar esos datos con patrones de consultas en el tiempo para anticipar problemas antes de que lleguen al chat.</div>
+      <div class="hr"></div>
+
+      <!-- Visión integrada: 3 → IC1.2 amarillo -->
+      <div id="vision" class="row"><span class="dl">Visión integrada de la experiencia del cliente</span><div class="dbg"><div class="db" style="width:75%;background:#B8860B"></div></div><span class="dn">3</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.2</span></span></div>
+      <div class="fb">Entiendes bien cómo la documentación y el soporte impactan la experiencia completa del cliente, y manejas los escalamientos con criterio y transparencia.<br><br>El desafío para el próximo período es anticipar más. Hoy reaccionas bien cuando el cliente ya tiene el problema. El siguiente nivel es leer cambios de producto antes de que lleguen al chat y prepararte para lo que puede venir.</div>
+      <div class="hr"></div>
+
+      <!-- Comunicación: 3 → IC1.2 amarillo -->
+      <div id="comunicacion" class="row"><span class="dl">Comunicación y empatía</span><div class="dbg"><div class="db" style="width:75%;background:#B8860B"></div></div><span class="dn">3</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.2</span></span></div>
+      <div class="fb">Tienes un tono natural, claro y cercano que genera confianza desde el primer mensaje. El análisis de lenguaje de noviembre 2025 lo confirma: combinas términos técnicos con expresiones empáticas de forma equilibrada.<br><br>La oportunidad está más en la estructura que en el tono. En casos complejos tiendes a explicar todo de una vez. Ordenar la explicación por etapas puede ayudar a que el cliente siga mejor la conversación: primero contexto, luego solución, y confirmar comprensión antes de avanzar.</div>
+
+      <div class="hr" style="margin:12px 0 6px"></div>
+      <p class="blk">DELIVER — 20%</p>
+
+      <!-- Eficiencia: 3 → IC1.2 amarillo -->
+      <div id="eficiencia" class="row"><span class="dl">Eficiencia, priorización y planificación</span><div class="dbg"><div class="db" style="width:75%;background:#B8860B"></div></div><span class="dn">3</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.2</span></span></div>
+      <div class="fb">Organizas bien tu trabajo. Planificas la semana, comunicas tu estado y haces seguimiento autónomo del Centro de Ayuda sin necesidad de recordatorios.<br><br>La brecha aparece en proyectos que involucran a otras personas. Cuando eres la única responsable los ejecutas muy bien. El siguiente paso es empezar a liderar también la coordinación cuando hay más personas involucradas: proponer pasos, distribuir tareas y hacer seguimiento del avance conjunto.</div>
+      <div class="hr"></div>
+
+      <!-- Agilidad: 3 → IC1.2 amarillo -->
+      <div id="agilidad" class="row"><span class="dl">Agilidad</span><div class="dbg"><div class="db" style="width:75%;background:#B8860B"></div></div><span class="dn">3</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.2</span></span></div>
+      <div class="fb">Te adaptas bien a cambios y nuevas responsabilidades. Asumir el rol del Centro de Ayuda fue un buen ejemplo de eso.<br><br>Donde aparece una oportunidad es en las transiciones no planificadas. Cuando te ausentas, a veces faltan notas que permitan que el equipo continúe sin reprocesos. Los tres 360° del año mencionan este punto. Dejar el estado de los casos activos antes de cualquier ausencia puede transformarse en una rutina simple que evita fricciones.</div>
+
+      <div class="hr" style="margin:12px 0 6px"></div>
+      <p class="blk">BEHAVIOR — 30%</p>
+
+      <!-- Cultura: 4 → IC1.3 verde -->
+      <div id="cultura" class="row"><span class="dl">Cultura Chipax</span><div class="dbg"><div class="db" style="width:100%;background:#2E7D32"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC1.3</span></span></div>
+      <div class="fb">Operas con transparencia real. Cuando detectaste un error propio de facturación lo escalaste inmediatamente con toda la información y una propuesta de solución. Además, tu actitud frente a semanas complejas, cambios y alta carga es consistentemente positiva. El equipo lo percibe, y los tres 360° del año lo reflejan.<br><br>El siguiente paso es pasar de demostrar cultura a contagiarla más activamente: compartir aprendizajes con el equipo y reconocer logros colectivos de forma visible.</div>
+      <div class="hr"></div>
+
+      <!-- Coachability: 4 → IC1.3 verde -->
+      <div id="coachability" class="row"><span class="dl">Coachability</span><div class="dbg"><div class="db" style="width:100%;background:#2E7D32"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC1.3</span></span></div>
+      <div class="fb">Buscas feedback activamente, lo incorporas rápido y lo conviertes en mejoras concretas. Tu evolución desde la evaluación de 2023 hasta hoy lo muestra con claridad. También haces preguntas cuando tienes dudas genuinas en lugar de asumir respuestas, algo muy valioso para el aprendizaje continuo.<br><br>El siguiente paso es empezar a hacer el movimiento inverso con más frecuencia: dar feedback constructivo a tus pares de forma espontánea, sin esperar que te lo pidan.</div>
+      <div class="hr"></div>
+
+      <!-- Trabajo en equipo: 3 → IC1.2 amarillo -->
+      <div id="equipo" class="row"><span class="dl">Trabajo en equipo</span><div class="dbg"><div class="db" style="width:75%;background:#B8860B"></div></div><span class="dn">3</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.2</span></span></div>
+      <div class="fb">Colaboras bien, cumples tus compromisos y generas confianza en el equipo. Como responsable del Centro de Ayuda coordinas con otras personas y aseguras que la información esté disponible para todos.<br><br>Los tres 360° del año coinciden en una oportunidad: puedes aportar más en los espacios colectivos. Incorporar el hábito de compartir algo útil de forma periódica — un aprendizaje del chat o del Centro de Ayuda — ya hace diferencia.</div>
+      <div class="hr"></div>
+
+      <!-- Growth: 4 → IC1.3 verde -->
+      <div id="growth" class="row"><span class="dl">Growth mindset</span><div class="dbg"><div class="db" style="width:100%;background:#2E7D32"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC1.3</span></span></div>
+      <div class="fb">Tu trayectoria desde IC1.1 hasta el nivel actual muestra una evolución consistente. El aprendizaje es algo que buscas activamente. Tus objetivos de 2025 fueron trabajados de forma ordenada y con prioridades claras, y en cada ciclo de feedback hay progreso en los puntos trabajados.<br><br>El siguiente paso es que ese aprendizaje empiece a transformarse más seguido en mejoras para el equipo: usar lo que vas aprendiendo para proponer cambios o enseñar lo que ya manejas bien.</div>
+    </div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Top 3 prioridades este año</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p1">1</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Estructurar la explicación en casos complejos</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">El tono ya está. Lo que sigue es consolidar la estructura: primero el contexto, luego la solución, y confirmar comprensión antes de cerrar. Cuando eso sea tu estándar en todos los casos complejos, el salto en calidad va a ser inmediato.</p>
+      </div>
+    </div>
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p2">2</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Coordinar proyectos con el equipo, no solo ejecutarlos sola</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Cuando eres la única responsable, todo funciona muy bien. El foco de este año es liderar también cuando hay más personas involucradas: proponer los pasos, distribuir tareas y hacer seguimiento del avance conjunto.</p>
+      </div>
+    </div>
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p3">3</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Compartir más con el equipo de forma espontánea</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Tienes mucho conocimiento útil y lo compartes cuando te lo piden. El desafío es hacerlo sin que te lo pidan: un aprendizaje del chat, una observación del Centro de Ayuda, una buena práctica. Eso amplifica tu impacto más allá de tu propio trabajo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Objetivos anuales 2026</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="card">
+      <div class="row" style="margin-bottom:8px"><div class="on">1</div><p style="font-size:15px;font-weight:500">Mejora gradual del IQS</p></div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Alcanzar un IQS trimestral de 4,6 en Q1, 4,7 en Q2, 4,7 en Q3 y 4,8 en Q4 en las interacciones con clientes, cumpliendo los estándares definidos de calidad, tono y procesos.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Foco en el cliente / Usuario</p>
+    </div>
+    <div class="card">
+      <div class="row" style="margin-bottom:8px"><div class="on">2</div><p style="font-size:15px;font-weight:500">Mejoras estructurales del Centro de Ayuda</p></div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Liderar y ejecutar al menos 2 iniciativas trimestrales de soporte proactivo enfocadas en la planificación y mejora del Centro de Ayuda, mediante experimentos que reduzcan fricciones y consultas repetidas.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Gestión y ejecución de proyectos</p>
+    </div>
+    <div class="card obj-new">
+      <div class="row" style="margin-bottom:8px">
+        <div class="on" style="background:#E8F5E9;color:#2E7D32">3</div>
+        <p style="font-size:15px;font-weight:500">Voz del cliente a producto <span class="nb">nuevo</span></p>
+      </div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Una vez por trimestre, identificar un tema relevante del feedback de clientes — ya sea por volumen, impacto o urgencia — analizarlo, documentarlo y presentarlo al equipo de producto en la reunión mensual de feedback.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Uso de datos / Visión integrada de la experiencia del cliente</p>
+      <div style="font-size:13px;color:#555;line-height:1.6;border-left:2px solid #A5D6A7;padding-left:12px;margin-top:12px;padding:10px 12px;border-radius:0 6px 6px 0;background:#F9FFF9">
+        Ejecutar 3 presentaciones durante 2026 (Q2, Q3 y Q4). Cada una debe incluir: el tema identificado y por qué es relevante, los casos o conversaciones que lo evidencian, una hipótesis de causa y una recomendación concreta para producto. Todo documentado en Notion antes de cada presentación.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:#E8F5E9;border:.5px solid #A5D6A7;border-radius:12px;padding:1.75rem 1.5rem;text-align:center">
+  <p style="font-size:22px;font-weight:500;color:#1B5E20;margin-bottom:10px">¡Nuevo nivel alcanzado! 🎉</p>
+  <p style="font-size:42px;font-weight:500;color:#1B5E20;margin-bottom:4px">IC1.3</p>
+  <p style="font-size:15px;color:#2E7D32;margin-bottom:16px">Customer Support Executive</p>
+  <div style="width:40px;height:1px;background:#A5D6A7;margin:0 auto 16px"></div>
+  <p style="font-size:14px;color:#2E7D32;line-height:1.7;max-width:500px;margin:0 auto">Javi, esta evaluación refleja un año de crecimiento real y constante 🙌 Pasaste de IC1.1 a IC1.3, saltándote un nivel con evidencia concreta en todas las dimensiones. Tu CSAT, el trabajo en el Centro de Ayuda y tu actitud frente a cada ciclo de feedback lo demuestran. El 2026 es el año de consolidar este nivel y empezar a asomarte al IC2. Vamos con todo ✨</p>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+function unlock(){
+  var v=document.getElementById('lock-input').value.trim().toUpperCase();
+  var err=document.getElementById('lock-err');
+  if(v==='LYA'){
+    document.getElementById('lock').style.display='none';
+    document.getElementById('content').style.display='block';
+    initChart();
+  } else {
+    err.style.display='block';
+    document.getElementById('lock-input').value='';
+    document.getElementById('lock-input').focus();
+  }
+}
+document.getElementById('lock-input').addEventListener('keydown',function(e){if(e.key==='Enter')unlock();});
+
+var chartInit=false;
+function initChart(){
+  if(chartInit)return; chartInit=true;
+  var labels=['Gestión Soporte','Foco en cliente','Uso de datos','Visión CX','Comunicación','Eficiencia','Agilidad','Cultura Chipax','Coachability','Trabajo en equipo','Growth mindset'];
+  var sectionIds=['gestion','foco','datos','vision','comunicacion','eficiencia','agilidad','cultura','coachability','equipo','growth'];
+  var data2026=[4,4,3,3,3,3,3,4,4,3,4];
+  var data2025=[3,2,1,2,3,2,2,3,3,2,2];
+  var gridC='rgba(0,0,0,0.08)';
+  var labelC='#666';
+  var canvas=document.getElementById('radar');
+  var chart=new Chart(canvas,{
+    type:'radar',
+    data:{
+      labels:labels,
+      datasets:[
+        {label:'2026',data:data2026,borderColor:'#185FA5',backgroundColor:'rgba(24,95,165,0.12)',borderWidth:2,pointBackgroundColor:'#185FA5',pointRadius:4,pointHoverRadius:6},
+        {label:'2025',data:data2025,borderColor:'#B8860B',backgroundColor:'rgba(184,134,11,0.08)',borderWidth:1.5,borderDash:[4,3],pointBackgroundColor:'#B8860B',pointRadius:3}
+      ]
+    },
+    options:{
+      responsive:true,
+      scales:{r:{min:0,max:4,ticks:{stepSize:1,color:labelC,font:{size:11},backdropColor:'transparent'},grid:{color:gridC},angleLines:{color:gridC},pointLabels:{color:labelC,font:{size:11}}}},
+      plugins:{
+        legend:{labels:{color:labelC,font:{size:12},boxWidth:14,padding:16}},
+        tooltip:{callbacks:{title:function(items){return items[0]?items[0].label:'';}}}
+      }
+    }
+  });
+  canvas.addEventListener('click',function(e){
+    var pts=chart.getElementsAtEventForMode(e,'point',{intersect:true},false);
+    if(!pts.length)return;
+    var el=document.getElementById(sectionIds[pts[0].index]);
+    if(el){
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.style.transition='background 0.3s';
+      el.style.background='#E6F1FB';
+      setTimeout(function(){el.style.background='';},1500);
+    }
+  });
+}
+</script>
+</body>
+</html>
