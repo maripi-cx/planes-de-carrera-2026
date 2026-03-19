@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación Sofía Depetris — TL CS — 2026</title>
+<style>
+  #lock{position:fixed;inset:0;background:#f9f9f7;display:flex;align-items:center;justify-content:center;z-index:999}
+  #lock-box{background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:2rem;width:320px;text-align:center}
+  #lock-box p{font-size:15px;font-weight:500;color:#1a1a1a;margin-bottom:6px}
+  #lock-box small{font-size:13px;color:#888;display:block;margin-bottom:1.25rem}
+  #lock-input{width:100%;padding:10px 14px;font-size:15px;border:.5px solid #e0e0da;border-radius:8px;outline:none;text-align:center;letter-spacing:.12em;text-transform:uppercase;background:#fafafa;color:#1a1a1a;margin-bottom:10px}
+  #lock-input:focus{border-color:#185FA5}
+  #lock-btn{width:100%;padding:10px;background:#185FA5;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
+  #lock-btn:hover{background:#0C447C}
+  #lock-err{font-size:12px;color:#C62828;margin-top:8px;display:none}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f9f9f7;color:#1a1a1a;padding:2rem;max-width:820px;margin:0 auto}
+  .s{margin-bottom:2rem}
+  .sh{font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1.5px solid #e0e0da}
+  .card{background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:1rem 1.25rem}
+  .mc{background:#f5f5f2;border-radius:8px;padding:.85rem 1rem}
+  .ml{font-size:12px;color:#888;margin-bottom:3px}
+  .mv{font-size:22px;font-weight:500;color:#1a1a1a}
+  .ms{font-size:12px;color:#888;margin-top:2px}
+  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .bdg{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px}
+  .bg{background:#FFF8E1;color:#B8860B}
+  .bgg{background:#E8F5E9;color:#2E7D32}
+  .bb{background:#E6F1FB;color:#185FA5}
+  .row{display:flex;align-items:center;gap:10px}
+  .dl{font-size:13px;font-weight:500;color:#1a1a1a;min-width:220px}
+  .dbg{flex:1;height:7px;background:#f0f0ee;border-radius:4px;overflow:hidden}
+  .db{height:7px;border-radius:4px}
+  .dn{font-size:13px;font-weight:500;color:#1a1a1a;min-width:22px;text-align:right}
+  .hr{border:none;border-top:.5px solid #e8e8e4;margin:10px 0}
+  .blk{font-size:17px;font-weight:500;color:#1a1a1a;margin:14px 0 10px;border-bottom:.5px solid #e8e8e4;padding-bottom:6px}
+  .fb{font-size:13px;color:#666;line-height:1.6;border-left:2px solid #ddd;padding-left:12px;margin-top:8px}
+  .pn{width:30px;height:30px;border-radius:50%;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .p1{background:#E8F5E9;color:#2E7D32}
+  .p2{background:#FFF8E1;color:#B8860B}
+  .p3{background:#FFEBEE;color:#C62828}
+  .on{width:26px;height:26px;border-radius:50%;background:#E6F1FB;color:#185FA5;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .nb{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;background:#E8F5E9;color:#2E7D32;margin-left:6px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em}
+  .obj-new{border:.5px solid #A5D6A7;background:#F9FFF9}
+  @media print{body{background:#fff;padding:0}canvas{max-height:280px!important}.card{break-inside:avoid}.db,.mc,.bdg{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:600px){.g4{grid-template-columns:repeat(2,1fr)}.dl{min-width:140px;font-size:12px}}
+</style>
+</head>
+<body>
+
+<div id="lock">
+  <div id="lock-box">
+    <div style="width:48px;height:48px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:22px">🔒</div>
+    <p>Evaluación Sofía Depetris</p>
+    <small>Ingresa la clave para ver tu evaluación</small>
+    <input id="lock-input" type="password" placeholder="••••••" autocomplete="off" />
+    <button id="lock-btn" onclick="unlock()">Ver evaluación</button>
+    <div id="lock-err">Clave incorrecta. Intenta de nuevo.</div>
+  </div>
+</div>
+
+<div id="content" style="display:none">
+
+<div class="s">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem">
+    <div style="width:46px;height:46px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;color:#185FA5">SD</div>
+    <div>
+      <p style="font-size:19px;font-weight:500;margin-bottom:2px">Sofía Depetris</p>
+      <p style="font-size:13px;color:#888"><strong>Team Lead Customer Success</strong></p>
+    </div>
+    <div style="margin-left:auto"><span class="bdg bb">2026</span></div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Resumen de evaluación</p>
+  <div class="g4" style="margin-bottom:10px">
+    <div class="mc"><div class="ml">Nota final</div><div class="mv">10.80</div><div class="ms">de 12</div></div>
+    <div class="mc"><div class="ml">Bloque WORK</div><div class="mv">11.0</div><div class="ms">50% ponderación</div></div>
+    <div class="mc"><div class="ml">Bloque DELIVER</div><div class="mv">10.0</div><div class="ms">20% ponderación</div></div>
+    <div class="mc"><div class="ml">Bloque BEHAVIOR</div><div class="mv">11.0</div><div class="ms">30% ponderación</div></div>
+  </div>
+
+  <div style="background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:1.25rem;margin-bottom:10px">
+    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#aaa;margin-bottom:4px">Radar de competencias</p>
+    <p style="font-size:12px;color:#bbb;margin-bottom:1rem">Haz clic en un punto para ir al feedback</p>
+    <canvas id="radar" style="max-height:340px;cursor:pointer"></canvas>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Detalle por dimensión</p>
+  <div class="card">
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <p class="blk">WORK — 50%</p>
+
+      <!-- Gestión CS: 10→11 ✅ verde -->
+      <div id="gestion" class="row"><span class="dl">Gestión CS y autonomía</span><div class="dbg"><div class="db" style="width:85%;background:#2E7D32"></div></div><span class="dn">11</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">3.2</span></span></div>
+      <div class="fb">Gestionas con solidez cuando el contexto está estructurado, logrando ordenar el trabajo del equipo y avanzar en proyectos relevantes como capacity planning, procesos CS e implementación de IA. Se nota evolución en tu rol como líder, con impacto claro en cómo se prioriza y ejecuta el trabajo del equipo. Cuando la carga aumenta y conviven múltiples focos, aparece la necesidad de anticipar mejor las tensiones del rol y ajustar antes de que escalen, especialmente en la gestión de tu propio tiempo y foco.</div>
+      <div class="hr"></div>
+
+      <!-- Comunicación: 10→10 🟡 amarillo -->
+      <div id="comunicacion" class="row"><span class="dl">Comunicación y empatía</span><div class="dbg"><div class="db" style="width:77%;background:#B8860B"></div></div><span class="dn">10</span><span style="min-width:52px;text-align:right"><span class="bdg bg">3.1</span></span></div>
+      <div class="fb">Tu comunicación es clara y efectiva, facilitando la coordinación con el equipo y otras áreas. Logras alinear y avanzar en instancias colaborativas, como se vio en el levantamiento del score de partners. El espacio de mejora está en dar mayor visibilidad a avances y cierres en procesos compartidos, y en acompañar las decisiones con el criterio detrás de ellas.</div>
+      <div class="hr"></div>
+
+      <!-- Comercial: 10→10 🟡 amarillo -->
+      <div id="comercial" class="row"><span class="dl">Pensamiento Comercial</span><div class="dbg"><div class="db" style="width:77%;background:#B8860B"></div></div><span class="dn">10</span><span style="min-width:52px;text-align:right"><span class="bdg bg">3.2</span></span></div>
+      <div class="fb">Has integrado el foco comercial de forma clara en tu análisis y toma de decisiones. El score de partners, el capacity planning y el análisis de churn muestran conexión real entre operación y revenue. Para seguir consolidando este nivel, el desafío está en hacer más explícita y sistemática la cuantificación del impacto económico de las decisiones que propones.</div>
+      <div class="hr"></div>
+
+      <!-- Foco cliente: 9→10 ✅ verde -->
+      <div id="foco" class="row"><span class="dl">Foco en el cliente</span><div class="dbg"><div class="db" style="width:77%;background:#2E7D32"></div></div><span class="dn">10</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">3.1</span></span></div>
+      <div class="fb">Tienes una comprensión profunda del cliente y de los problemas que explican su comportamiento. Demuestras capacidad de leer el análisis de churn del equipo e identificar implicancias concretas para la gestión de la cartera y los procesos del equipo. El espacio de desarrollo está en que esa comprensión se traduzca de forma consistente en acciones del equipo, bajando estas definiciones a protocolos que impacten el día a día.</div>
+      <div class="hr"></div>
+
+      <!-- Uso de datos: 9→10 ✅ verde -->
+      <div id="datos" class="row"><span class="dl">Uso de datos</span><div class="dbg"><div class="db" style="width:77%;background:#2E7D32"></div></div><span class="dn">10</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">3.1</span></span></div>
+      <div class="fb">Diste un salto importante en el uso de datos, construyendo análisis robustos y bien estructurados que permiten entender el negocio con profundidad: los análisis de WhatsApp, MRR, indicadores individuales y capacity planning muestran capacidad para identificar patrones relevantes y traducirlos en recomendaciones accionables. Además, demuestras capacidad de leer y operar sobre análisis complejos producidos por el equipo, extrayendo implicancias para la gestión. El siguiente nivel se juega en anticipar con mayor sistematicidad, usando estos aprendizajes para construir alertas tempranas y prevenir problemas antes de que ocurran.</div>
+      <div class="hr"></div>
+
+      <!-- Visión CX: 9→9 🟡 amarillo -->
+      <div id="vision" class="row"><span class="dl">Visión integrada de la CX</span><div class="dbg"><div class="db" style="width:69%;background:#B8860B"></div></div><span class="dn">9</span><span style="min-width:52px;text-align:right"><span class="bdg bg">3.2</span></span></div>
+      <div class="fb">Tienes una mirada cada vez más transversal de la experiencia del cliente, conectando distintos momentos del journey y variables relevantes. Demuestras capacidad de tomar análisis complejos del equipo y extraer implicancias operativas concretas. Todavía hay espacio para que esa comprensión no se quede solo en el análisis, sino que se traduzca en cambios concretos en la operación del equipo y en cómo se gestionan los procesos de forma consistente.</div>
+
+      <div class="hr" style="margin:12px 0 6px"></div>
+      <p class="blk">DELIVER — 20%</p>
+
+      <!-- Eficiencia: 10→10 🟡 amarillo -->
+      <div id="eficiencia" class="row"><span class="dl">Eficiencia, priorización y planificación</span><div class="dbg"><div class="db" style="width:77%;background:#B8860B"></div></div><span class="dn">10</span><span style="min-width:52px;text-align:right"><span class="bdg bg">3.1</span></span></div>
+      <div class="fb">Has demostrado buena capacidad para ejecutar y ordenar el trabajo, con resultados concretos como el capacity planning y el cumplimiento de objetivos del período anterior. Cuando detectas desorden, logras reordenarte y avanzar. El siguiente nivel se juega en consolidar una etapa más robusta de diseño antes de ejecutar, especialmente en proyectos más complejos, para evitar retrabajo y asegurar consistencia.</div>
+      <div class="hr"></div>
+
+      <!-- Agilidad: 10→10 🟡 amarillo -->
+      <div id="agilidad" class="row"><span class="dl">Agilidad</span><div class="dbg"><div class="db" style="width:77%;background:#B8860B"></div></div><span class="dn">10</span><span style="min-width:52px;text-align:right"><span class="bdg bg">3.1</span></span></div>
+      <div class="fb">Tienes buena velocidad para implementar iniciativas y responder a necesidades del equipo. La implementación de IA en asesorías y otros análisis reflejan capacidad de reacción y ejecución rápida con buen nivel de profundidad. El espacio está en sostener esa agilidad también en ajustes que impactan tu propio rol, manteniendo apertura a cambios en la forma de trabajar.</div>
+
+      <div class="hr" style="margin:12px 0 6px"></div>
+      <p class="blk">BEHAVIOR — 30%</p>
+
+      <!-- Cultura: 9→10 ✅ verde -->
+      <div id="cultura" class="row"><span class="dl">Cultura Chipax</span><div class="dbg"><div class="db" style="width:77%;background:#2E7D32"></div></div><span class="dn">10</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">3.2</span></span></div>
+      <div class="fb">Eres un referente claro de cultura dentro del equipo, manteniendo una actitud positiva, cercana y consistente. El feedback 360 y el reconocimiento interno reflejan el impacto que tienes en el ambiente del equipo. El desafío está en sostener ese rol también en momentos de cambio o tensión, siendo guía para el equipo en cómo enfrentar esos escenarios.</div>
+      <div class="hr"></div>
+
+      <!-- Coachability: 10→10 🟡 amarillo -->
+      <div id="coachability" class="row"><span class="dl">Coachability</span><div class="dbg"><div class="db" style="width:77%;background:#B8860B"></div></div><span class="dn">10</span><span style="min-width:52px;text-align:right"><span class="bdg bg">3.1</span></span></div>
+      <div class="fb">Integras feedback de forma visible entre ciclos, ajustando tu forma de trabajar y retomando el orden cuando es necesario. Además, promueves espacios de feedback dentro del equipo, lo que refuerza una cultura de mejora continua. El espacio de desarrollo está en sostener esa integración también en escenarios más complejos o ambiguos, tomando decisiones con mayor autonomía de criterio.</div>
+      <div class="hr"></div>
+
+      <!-- Trabajo equipo: 9→10 ✅ verde -->
+      <div id="equipo" class="row"><span class="dl">Trabajo en equipo</span><div class="dbg"><div class="db" style="width:77%;background:#2E7D32"></div></div><span class="dn">10</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">3.2</span></span></div>
+      <div class="fb">Generas buenas dinámicas de colaboración y facilitas el trabajo transversal con otras áreas. Lideras iniciativas que involucran a distintos actores y eres percibida como un punto de apoyo dentro del equipo. Para seguir elevando tu impacto, el foco está en usar al equipo de forma más activa como palanca, distribuyendo mejor la carga en momentos de mayor exigencia.</div>
+      <div class="hr"></div>
+
+      <!-- Growth: 10→10 🟡 amarillo -->
+      <div id="growth" class="row"><span class="dl">Growth mindset</span><div class="dbg"><div class="db" style="width:77%;background:#B8860B"></div></div><span class="dn">10</span><span style="min-width:52px;text-align:right"><span class="bdg bg">3.2</span></span></div>
+      <div class="fb">Tienes una mentalidad abierta al aprendizaje y a mejorar, incorporando nuevas herramientas y enfoques como IA en asesorías y análisis más complejos. Se ve una evolución sostenida en cómo abordas problemas y propones soluciones. El siguiente paso está en amplificar este mindset hacia el equipo, ayudando a que otros también adopten una lógica de aprendizaje continuo y desafío constante.</div>
+    </div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Top 3 prioridades este año</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p1">1</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Bajar la visión sistémica a protocolos del equipo</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Tienes la mirada y los análisis. El siguiente paso es que eso se traduzca en cambios concretos que el equipo adopte de forma consistente: procesos claros, hábitos instalados y resultados medibles.</p>
+      </div>
+    </div>
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p2">2</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Anticipar tensiones antes de que escalen</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Cuando el contexto se complejiza, la tendencia es absorber antes de escalar. Desarrollar el hábito de anticipar —tanto en la gestión del equipo como en la tuya propia— es el foco más importante para consolidar el rol de TL.</p>
+      </div>
+    </div>
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p3">3</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Cuantificar el impacto de lo que propones</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Tus propuestas tienen buena lógica operativa. El desafío ahora es anclarlas a impacto en el negocio: cuánto MRR, cuánto churn, cuánto tiempo. Eso hace que tus decisiones sean más fáciles de priorizar y defender.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Objetivos anuales 2026</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="card">
+      <div class="row" style="margin-bottom:8px"><div class="on">1</div><p style="font-size:15px;font-weight:500">Rediseño y adopción de procesos del equipo</p></div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Identificar, rediseñar y documentar al menos 2 procesos del equipo por trimestre, asegurando su adopción mediante presentación y puesta en marcha.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Gestión y ejecución de proyectos</p>
+    </div>
+    <div class="card">
+      <div class="row" style="margin-bottom:8px"><div class="on">2</div><p style="font-size:15px;font-weight:500">Calidad del equipo — IQS</p></div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Monitorear el IQS del equipo de forma periódica, identificar brechas de calidad en interacciones con clientes y ejecutar acciones de feedback y mejora para elevar y sostener el estándar definido.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Liderazgo</p>
+    </div>
+    <div class="card obj-new">
+      <div class="row" style="margin-bottom:8px">
+        <div class="on" style="background:#E8F5E9;color:#2E7D32">3</div>
+        <p style="font-size:15px;font-weight:500">Desarrollo de habilidades de liderazgo <span class="nb">nuevo</span></p>
+      </div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Trabajar una habilidad blanda de liderazgo por trimestre, seleccionada en base a los focos de desarrollo de su evaluación, aplicándola de forma activa y recurrente en situaciones reales del rol durante el Q.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Liderazgo situacional y desarrollo personal</p>
+      <div style="font-size:13px;color:#555;line-height:1.6;border-left:2px solid #A5D6A7;padding-left:12px;margin-top:12px;padding:10px 12px;border-radius:0 6px 6px 0;background:#F9FFF9">
+        Al cierre de al menos 3 trimestres del año, Sofía presenta en el 1:1 con su líder la documentación en formato experimento de la habilidad trabajada durante el Q: habilidad, objetivo, acciones y resultados.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:#E8F5E9;border:.5px solid #A5D6A7;border-radius:12px;padding:1.75rem 1.5rem;text-align:center">
+  <p style="font-size:22px;font-weight:500;color:#1B5E20;margin-bottom:10px">¡Nuevo nivel alcanzado! 🎉</p>
+  <p style="font-size:42px;font-weight:500;color:#1B5E20;margin-bottom:4px">TL 3.2</p>
+  <p style="font-size:15px;color:#2E7D32;margin-bottom:16px">Team Lead Customer Success</p>
+  <div style="width:40px;height:1px;background:#A5D6A7;margin:0 auto 16px"></div>
+  <p style="font-size:14px;color:#2E7D32;line-height:1.7;max-width:500px;margin:0 auto">Sofi, esta evaluación refleja un año de crecimiento real y sostenido 🙌 Pasaste de gestionar bien lo operativo a liderar con criterio, construir análisis complejos y empujar mejoras concretas. Tu impacto en el equipo y en los resultados es visible. Muy bien ganado ✨</p>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+function unlock(){
+  var v=document.getElementById('lock-input').value.trim().toUpperCase();
+  var err=document.getElementById('lock-err');
+  if(v==='SOMI'){
+    document.getElementById('lock').style.display='none';
+    document.getElementById('content').style.display='block';
+    initChart();
+  } else {
+    err.style.display='block';
+    document.getElementById('lock-input').value='';
+    document.getElementById('lock-input').focus();
+  }
+}
+document.getElementById('lock-input').addEventListener('keydown',function(e){if(e.key==='Enter')unlock();});
+
+var chartInit=false;
+function initChart(){
+  if(chartInit)return; chartInit=true;
+  var labels=['Gestión CS','Comunicación','Pens. Comercial','Foco en cliente','Uso de datos','Visión CX','Eficiencia','Agilidad','Cultura Chipax','Coachability','Trabajo en equipo','Growth mindset'];
+  var sectionIds=['gestion','comunicacion','comercial','foco','datos','vision','eficiencia','agilidad','cultura','coachability','equipo','growth'];
+  var data2026=[11,10,10,10,10,9,10,10,10,10,10,10];
+  var data2025=[10,10,10,9,9,9,10,10,9,10,9,10];
+  var gridC='rgba(0,0,0,0.08)';
+  var labelC='#666';
+  var canvas=document.getElementById('radar');
+  var chart=new Chart(canvas,{
+    type:'radar',
+    data:{
+      labels:labels,
+      datasets:[
+        {label:'2026',data:data2026,borderColor:'#185FA5',backgroundColor:'rgba(24,95,165,0.12)',borderWidth:2,pointBackgroundColor:'#185FA5',pointRadius:4,pointHoverRadius:6},
+        {label:'2025',data:data2025,borderColor:'#B8860B',backgroundColor:'rgba(184,134,11,0.08)',borderWidth:1.5,borderDash:[4,3],pointBackgroundColor:'#B8860B',pointRadius:3}
+      ]
+    },
+    options:{
+      responsive:true,
+      scales:{r:{min:0,max:12,ticks:{stepSize:3,color:labelC,font:{size:11},backdropColor:'transparent'},grid:{color:gridC},angleLines:{color:gridC},pointLabels:{color:labelC,font:{size:11}}}},
+      plugins:{
+        legend:{labels:{color:labelC,font:{size:12},boxWidth:14,padding:16}},
+        tooltip:{callbacks:{title:function(items){return items[0]?items[0].label:'';}}}
+      }
+    }
+  });
+  canvas.addEventListener('click',function(e){
+    var pts=chart.getElementsAtEventForMode(e,'point',{intersect:true},false);
+    if(!pts.length)return;
+    var el=document.getElementById(sectionIds[pts[0].index]);
+    if(el){
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.style.transition='background 0.3s';
+      el.style.background='#E6F1FB';
+      setTimeout(function(){el.style.background='';},1500);
+    }
+  });
+}
+</script>
+</body>
+</html>
