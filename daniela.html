@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación Daniela Ñancul — IC1.2 — 2026</title>
+<style>
+  #lock{position:fixed;inset:0;background:#f9f9f7;display:flex;align-items:center;justify-content:center;z-index:999}
+  #lock-box{background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:2rem;width:320px;text-align:center}
+  #lock-box p{font-size:15px;font-weight:500;color:#1a1a1a;margin-bottom:6px}
+  #lock-box small{font-size:13px;color:#888;display:block;margin-bottom:1.25rem}
+  #lock-input{width:100%;padding:10px 14px;font-size:15px;border:.5px solid #e0e0da;border-radius:8px;outline:none;text-align:center;letter-spacing:.12em;text-transform:uppercase;background:#fafafa;color:#1a1a1a;margin-bottom:10px}
+  #lock-input:focus{border-color:#185FA5}
+  #lock-btn{width:100%;padding:10px;background:#185FA5;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
+  #lock-btn:hover{background:#0C447C}
+  #lock-err{font-size:12px;color:#C62828;margin-top:8px;display:none}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f9f9f7;color:#1a1a1a;padding:2rem;max-width:820px;margin:0 auto}
+  .s{margin-bottom:2rem}
+  .sh{font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1.5px solid #e0e0da}
+  .card{background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:1rem 1.25rem}
+  .mc{background:#f5f5f2;border-radius:8px;padding:.85rem 1rem}
+  .ml{font-size:12px;color:#888;margin-bottom:3px}
+  .mv{font-size:22px;font-weight:500;color:#1a1a1a}
+  .ms{font-size:12px;color:#888;margin-top:2px}
+  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .bdg{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px}
+  .bg{background:#FFF8E1;color:#B8860B}
+  .bgg{background:#E8F5E9;color:#2E7D32}
+  .bb{background:#E6F1FB;color:#185FA5}
+  .row{display:flex;align-items:center;gap:10px}
+  .dl{font-size:13px;font-weight:500;color:#1a1a1a;min-width:220px}
+  .dbg{flex:1;height:7px;background:#f0f0ee;border-radius:4px;overflow:hidden}
+  .db{height:7px;border-radius:4px}
+  .dn{font-size:13px;font-weight:500;color:#1a1a1a;min-width:22px;text-align:right}
+  .hr{border:none;border-top:.5px solid #e8e8e4;margin:10px 0}
+  .blk{font-size:17px;font-weight:500;color:#1a1a1a;margin:14px 0 10px;border-bottom:.5px solid #e8e8e4;padding-bottom:6px}
+  .fb{font-size:13px;color:#666;line-height:1.6;border-left:2px solid #ddd;padding-left:12px;margin-top:8px}
+  .pn{width:30px;height:30px;border-radius:50%;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .p1{background:#E8F5E9;color:#2E7D32}
+  .p2{background:#FFF8E1;color:#B8860B}
+  .p3{background:#FFEBEE;color:#C62828}
+  .on{width:26px;height:26px;border-radius:50%;background:#E6F1FB;color:#185FA5;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .nb{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;background:#E8F5E9;color:#2E7D32;margin-left:6px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em}
+  .obj-new{border:.5px solid #A5D6A7;background:#F9FFF9}
+  @media print{body{background:#fff;padding:0}canvas{max-height:280px!important}.card{break-inside:avoid}.db,.mc,.bdg{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:600px){.g4{grid-template-columns:repeat(2,1fr)}.dl{min-width:140px;font-size:12px}}
+</style>
+</head>
+<body>
+
+<div id="lock">
+  <div id="lock-box">
+    <div style="width:48px;height:48px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:22px">🔒</div>
+    <p>Evaluación Daniela Ñancul</p>
+    <small>Ingresa la clave para ver tu evaluación</small>
+    <input id="lock-input" type="password" placeholder="••••••" autocomplete="off" />
+    <button id="lock-btn" onclick="unlock()">Ver evaluación</button>
+    <div id="lock-err">Clave incorrecta. Intenta de nuevo.</div>
+  </div>
+</div>
+
+<div id="content" style="display:none">
+
+<div class="s">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem">
+    <div style="width:46px;height:46px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;color:#185FA5">DÑ</div>
+    <div>
+      <p style="font-size:19px;font-weight:500;margin-bottom:2px">Daniela Ñancul</p>
+      <p style="font-size:13px;color:#888"><strong>Customer Support Executive</strong></p>
+    </div>
+    <div style="margin-left:auto"><span class="bdg bb">2026</span></div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Resumen de evaluación</p>
+  <div class="g4" style="margin-bottom:10px">
+    <div class="mc"><div class="ml">Nota final</div><div class="mv">2.80</div><div class="ms">de 4</div></div>
+    <div class="mc"><div class="ml">Bloque WORK</div><div class="mv">3.05</div><div class="ms">50% ponderación</div></div>
+    <div class="mc"><div class="ml">Bloque DELIVER</div><div class="mv">2.00</div><div class="ms">20% ponderación</div></div>
+    <div class="mc"><div class="ml">Bloque BEHAVIOR</div><div class="mv">2.70</div><div class="ms">30% ponderación</div></div>
+  </div>
+
+  <div style="background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:1.25rem;margin-bottom:10px">
+    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#aaa;margin-bottom:4px">Radar de competencias</p>
+    <p style="font-size:12px;color:#bbb;margin-bottom:1rem">Haz clic en un punto para ir al feedback</p>
+    <canvas id="radar" style="max-height:340px;cursor:pointer"></canvas>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Detalle por dimensión</p>
+  <div class="card">
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <p class="blk">WORK — 50%</p>
+
+      <div id="gestion" class="row"><span class="dl">Gestión de Soporte y autonomía</span><div class="dbg"><div class="db" style="width:100%;background:#2E7D32"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC1.3</span></span></div>
+      <div class="fb">Lograste sostener conversaciones más complejas con mayor ownership durante el año, manteniendo continuidad y seguimiento sin perder el contexto del caso. Se observa más seguridad al gestionar situaciones que requieren coordinación con desarrollo o revisión técnica, y los IQS lo confirman: detectas bugs, diferencias de montos y causas sistémicas, y empujas hacia la solución.<br><br>El siguiente paso es profundizar aún más en el diagnóstico inicial antes de escalar, validando hipótesis propias y utilizando más recursos disponibles — como logs del scraper o revisión de XML — como parte de tu flujo estándar.</div>
+      <div class="hr"></div>
+
+      <div id="foco" class="row"><span class="dl">Foco en el cliente</span><div class="dbg"><div class="db" style="width:75%;background:#B8860B"></div></div><span class="dn">3</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.2</span></span></div>
+      <div class="fb">Tu orientación al cliente se consolidó durante el año. Mantienes un tono empático y claro incluso en situaciones complejas, y el CSAT cerró 2025 en 100% en diciembre con un promedio superior al 93% en el segundo semestre. Eso no es casualidad: refleja una forma de operar consistente.<br><br>El foco ahora está en fortalecer el seguimiento proactivo cuando los casos quedan en revisión, para cerrar los ciclos con más anticipación sin depender de que el cliente vuelva a escribir. Mientras el problema principal esté abierto, el cliente debería recibir un update tuyo antes de tener que pedirlo.</div>
+      <div class="hr"></div>
+
+      <div id="datos" class="row"><span class="dl">Uso de datos</span><div class="dbg"><div class="db" style="width:50%;background:#B8860B"></div></div><span class="dn">2</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.1</span></span></div>
+      <div class="fb">Tienes mayor familiaridad con las métricas del rol y con la información que entregan las herramientas de soporte. Usas el FRT y el CSAT como referencia para entender tu propio desempeño y los IQS como insumo para mejorar la calidad.<br><br>El siguiente paso es avanzar hacia un uso más activo: identificar patrones en los casos que más se repiten, cruzar esa información con problemas de producto y proponer mejoras con respaldo cuantitativo. Los proyectos que has impulsado nacen de observación cualitativa, que es valioso, pero agregar datos como capa de evidencia va a fortalecer mucho más tu impacto.</div>
+      <div class="hr"></div>
+
+      <div id="vision" class="row"><span class="dl">Visión integrada de la experiencia del cliente</span><div class="dbg"><div class="db" style="width:50%;background:#B8860B"></div></div><span class="dn">2</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.1</span></span></div>
+      <div class="fb">Se ve una mayor capacidad para conectar lo que ocurre en soporte con mejoras para el equipo y la experiencia del cliente. La creación de documentación operativa — Known Bugs V2, FAQ API, comportamiento esperado no documentado — refleja una mirada más sistémica que va más allá del ticket individual.<br><br>Para seguir creciendo en esta dimensión, el foco está en hacer esa conexión de forma más frecuente y proactiva: transformar observaciones del chat en propuestas concretas hacia producto, y participar con más criterio en instancias transversales del área.</div>
+      <div class="hr"></div>
+
+      <div id="comunicacion" class="row"><span class="dl">Comunicación y empatía</span><div class="dbg"><div class="db" style="width:100%;background:#2E7D32"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC1.3</span></span></div>
+      <div class="fb">Tu comunicación con clientes se mantiene clara, cercana y profesional. Tu tono es uno de los rasgos más reconocidos por el equipo y los clientes a lo largo del año: paciente, humano y sin fricción incluso en escenarios tensos. El análisis de lenguaje de noviembre 2025 lo confirma — "entiendo", "ayudar", "atenta", "paciencia" — hay empatía real en cómo escribes.<br><br>La oportunidad está en la síntesis. En casos complejos las respuestas tienden a ser extensas o técnicas. Adaptar el nivel de detalle según el cliente y cerrar siempre con una frase en simple que resuma el estado del caso puede hacer una diferencia inmediata en cómo el cliente percibe la resolución.</div>
+
+      <div class="hr" style="margin:12px 0 6px"></div>
+      <p class="blk">DELIVER — 20%</p>
+
+      <div id="eficiencia" class="row"><span class="dl">Eficiencia, priorización y planificación</span><div class="dbg"><div class="db" style="width:50%;background:#B8860B"></div></div><span class="dn">2</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.1</span></span></div>
+      <div class="fb">Manejaste un volumen alto de conversaciones durante el año y lograste mejorar el FRT de forma significativa desde enero. Eso muestra base sólida de gestión operativa.<br><br>Sin embargo, los tres ciclos de 360° del año repiten el mismo punto: conversaciones abiertas que no requieren acción inmediata, falta de notas de continuidad antes de salir a tareas, y uso inconsistente de las herramientas de organización. Para avanzar de nivel, el orden operativo tiene que convertirse en un hábito completamente consistente — cerrar ciclos, dejar contexto cuando sales de una conversación y usar snooze y notas de forma sistemática, no solo en los días buenos.</div>
+      <div class="hr"></div>
+
+      <div id="agilidad" class="row"><span class="dl">Agilidad</span><div class="dbg"><div class="db" style="width:50%;background:#B8860B"></div></div><span class="dn">2</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.1</span></span></div>
+      <div class="fb">Respondes con rapidez a la mayoría de los casos y te adaptas bien cuando aparecen cambios en el producto o comportamientos inesperados del sistema. Cuando detectaste el error masivo en exportables de Banco de Chile y Santander en septiembre, lo reportaste al equipo de inmediato con el contexto completo. Eso es agilidad real.<br><br>La oportunidad está en la consistencia. Los peaks de FRT en septiembre y octubre muestran que hay momentos donde el volumen o la complejidad te desestabilizan. El siguiente paso es anticipar mejor esos desbalances para evitar que impacten en el ritmo de respuesta.</div>
+
+      <div class="hr" style="margin:12px 0 6px"></div>
+      <p class="blk">BEHAVIOR — 30%</p>
+
+      <div id="cultura" class="row"><span class="dl">Cultura Chipax</span><div class="dbg"><div class="db" style="width:100%;background:#2E7D32"></div></div><span class="dn">4</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC1.3</span></span></div>
+      <div class="fb">Es una de tus fortalezas más claras y consistentes del año. La dimensión de Cultura Chipax en la 360 cerró en 5.00 en Q3 y Q4 — máximo posible. Tu actitud abierta, colaborativa y respetuosa contribuye al ambiente del equipo, y eso es algo que el equipo percibe y valora de forma espontánea.<br><br>El siguiente paso es pasar de demostrar cultura a contagiarla más activamente: compartir aprendizajes con el equipo, reconocer logros colectivos de forma visible y aportar tu perspectiva en espacios donde hoy todavía participas menos.</div>
+      <div class="hr"></div>
+
+      <div id="coachability" class="row"><span class="dl">Coachability</span><div class="dbg"><div class="db" style="width:75%;background:#B8860B"></div></div><span class="dn">3</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.2</span></span></div>
+      <div class="fb">Tu apertura al feedback se mantiene como una fortaleza. Durante el año se ve intención real por incorporar observaciones y ajustar tu forma de trabajar — la evolución en CSAT y en la calidad de los IQS lo demuestra con datos concretos. Recibes el feedback sin defensividad y lo aplicas con genuina intención de mejorar.<br><br>El siguiente paso es consolidar esos cambios en hábitos completamente sostenidos en el tiempo. Los puntos de mayor recurrencia — orden operativo, seguimiento proactivo — llevan tres ciclos de 360° siendo mencionados. No es falta de apertura: es convertirlos en rutina permanente.</div>
+      <div class="hr"></div>
+
+      <div id="equipo" class="row"><span class="dl">Trabajo en equipo</span><div class="dbg"><div class="db" style="width:50%;background:#B8860B"></div></div><span class="dn">2</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.1</span></span></div>
+      <div class="fb">Colaboras bien dentro del equipo de soporte, cumples tus compromisos y generas confianza. La documentación que creas — Known Bugs, FAQ API, comportamiento esperado no documentado — es un aporte real para el equipo completo, no solo para tu propio trabajo.<br><br>La oportunidad está en la participación proactiva en espacios colectivos. Los tres ciclos de 360° del año coinciden en que puedes aportar más en reuniones transversales y canales del área. Tienes criterio y conocimiento valioso — el desafío es compartirlo más seguido sin esperar que te lo pidan.</div>
+      <div class="hr"></div>
+
+      <div id="growth" class="row"><span class="dl">Growth mindset</span><div class="dbg"><div class="db" style="width:50%;background:#B8860B"></div></div><span class="dn">2</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC1.1</span></span></div>
+      <div class="fb">Durante el año impulsaste varias iniciativas que nacen de la observación directa del trabajo en soporte: Known Bugs V2, FAQ API, documentación de casos, comportamiento esperado no documentado, errores bancarios y el experimento de videos RG. Eso demuestra interés genuino por aprender y mejorar la forma en que trabaja el equipo.<br><br>El siguiente paso es cerrar el ciclo: medir el impacto de lo que impulsas y compartir los aprendizajes de forma más sistemática. El proyecto de videos RG es el más estructurado que has creado hasta ahora — tiene hipótesis, setup y métricas. Ese estándar puede convertirse en tu forma de trabajar en todos los proyectos que lideres.</div>
+    </div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Top 3 prioridades este año</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p1">1</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Convertir el orden operativo en hábito permanente</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Cerrar ciclos, dejar notas de continuidad antes de salir y usar las herramientas de organización de forma consistente. No en los días buenos — siempre. Este punto lleva tres ciclos de 360° apareciendo, y resolverlo libera carga mental para ti y reduce fricciones para el equipo.</p>
+      </div>
+    </div>
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p2">2</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Profundizar el diagnóstico técnico antes de escalar</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Antes de concluir que un problema es externo o depende de desarrollo, valida hipótesis propias: logs del scraper, revisión de XML, estados en la BD. Cuando eso sea tu estándar, la autonomía técnica da un salto inmediato y reduces los tiempos muertos de los clientes.</p>
+      </div>
+    </div>
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p3">3</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Cerrar los casos con más liderazgo</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Mientras el problema principal esté abierto, el cliente no debería tener que escribir para preguntar cómo va. Sustituir los cierres tipo "avísame cuando quieras" por un resumen de estado + próximo paso concreto transforma la percepción del servicio de buena a excepcional.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Objetivos anuales 2026</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="card">
+      <div class="row" style="margin-bottom:8px"><div class="on">1</div><p style="font-size:15px;font-weight:500">Mantener un IQS estable durante el año</p></div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Alcanzar un IQS trimestral de 4,5 en Q1, 4,6 en Q2, 4,6 en Q3 y 4,7 en Q4, reduciendo variabilidad y consolidando un desempeño consistente en calidad, tono y procesos.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Foco en el cliente / Usuario • Revisión trimestral de evolución en 1:1 con líder</p>
+    </div>
+    <div class="card">
+      <div class="row" style="margin-bottom:8px"><div class="on">2</div><p style="font-size:15px;font-weight:500">Liderar mejoras en errores masivos y known bugs</p></div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Liderar y documentar al menos 2 iniciativas trimestrales de soporte proactivo asociadas a la gestión de errores masivos y known bugs, asegurando respuestas consistentes y reducción de fricción para clientes y equipo.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Gestión y ejecución de proyectos • Revisión mensual de errores críticos. Revisión trimestral de iniciativas ejecutadas en 1:1 con líder</p>
+    </div>
+    <div class="card obj-new">
+      <div class="row" style="margin-bottom:8px">
+        <div class="on" style="background:#E8F5E9;color:#2E7D32">3</div>
+        <p style="font-size:15px;font-weight:500">Diseñar e implementar una acción de retención desde soporte <span class="nb">nuevo</span></p>
+      </div>
+      <p style="font-size:13px;color:#666;line-height:1.5">En Q1 investigar buenas prácticas de retención en soporte y presentar aprendizajes al equipo. En Q2 definir e implementar una acción concreta para mejorar la retención desde soporte. En Q3 medir sus resultados y presentarlos.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Visión integrada de la experiencia del cliente / Growth mindset • Revisión trimestral de evolución en 1:1 con líder</p>
+    </div>
+  </div>
+</div>
+
+<div style="background:#E6F1FB;border:.5px solid #90CAF9;border-radius:12px;padding:1.75rem 1.5rem;text-align:center">
+  <p style="font-size:22px;font-weight:500;color:#0C447C;margin-bottom:10px">¡NUEVO NIVEL ALCANZADO! 🎉</p>
+  <p style="font-size:42px;font-weight:500;color:#0C447C;margin-bottom:4px">IC1.2</p>
+  <p style="font-size:15px;color:#185FA5;margin-bottom:16px">Customer Support Executive</p>
+  <div style="width:40px;height:1px;background:#90CAF9;margin:0 auto 16px"></div>
+  <p style="font-size:14px;color:#185FA5;line-height:1.7;max-width:500px;margin:0 auto">Dani, esta evaluación refleja un año de crecimiento claro y sostenido 🙌 Pasaste de IC1.1 a IC1.2 con evidencia concreta en todas las dimensiones — el CSAT de fin de año, los proyectos que impulsaste y tu actitud frente a cada ciclo de feedback lo demuestran. El 2026 es el año de consolidar este nivel y empezar a asomarte al IC1.3. Tienes la base para lograrlo ✨</p>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+function unlock(){
+  var v=document.getElementById('lock-input').value.trim().toUpperCase();
+  var err=document.getElementById('lock-err');
+  if(v==='TWORD'){
+    document.getElementById('lock').style.display='none';
+    document.getElementById('content').style.display='block';
+    initChart();
+  } else {
+    err.style.display='block';
+    document.getElementById('lock-input').value='';
+    document.getElementById('lock-input').focus();
+  }
+}
+document.getElementById('lock-input').addEventListener('keydown',function(e){if(e.key==='Enter')unlock();});
+
+var chartInit=false;
+function initChart(){
+  if(chartInit)return; chartInit=true;
+  var labels=['Gestión Soporte','Foco en cliente','Uso de datos','Visión CX','Comunicación','Eficiencia','Agilidad','Cultura Chipax','Coachability','Trabajo en equipo','Growth mindset'];
+  var sectionIds=['gestion','foco','datos','vision','comunicacion','eficiencia','agilidad','cultura','coachability','equipo','growth'];
+  var data2026=[4,3,2,2,4,2,2,4,3,2,2];
+  var data2025=[3,2,1,2,3,2,2,3,3,2,2];
+  var gridC='rgba(0,0,0,0.08)';
+  var labelC='#666';
+  var canvas=document.getElementById('radar');
+  var chart=new Chart(canvas,{
+    type:'radar',
+    data:{
+      labels:labels,
+      datasets:[
+        {label:'2026',data:data2026,borderColor:'#185FA5',backgroundColor:'rgba(24,95,165,0.12)',borderWidth:2,pointBackgroundColor:'#185FA5',pointRadius:4,pointHoverRadius:6},
+        {label:'2025',data:data2025,borderColor:'#B8860B',backgroundColor:'rgba(184,134,11,0.08)',borderWidth:1.5,borderDash:[4,3],pointBackgroundColor:'#B8860B',pointRadius:3}
+      ]
+    },
+    options:{
+      responsive:true,
+      scales:{r:{min:0,max:4,ticks:{stepSize:1,color:labelC,font:{size:11},backdropColor:'transparent'},grid:{color:gridC},angleLines:{color:gridC},pointLabels:{color:labelC,font:{size:11}}}},
+      plugins:{
+        legend:{labels:{color:labelC,font:{size:12},boxWidth:14,padding:16}},
+        tooltip:{callbacks:{title:function(items){return items[0]?items[0].label:'';}}}
+      }
+    }
+  });
+  canvas.addEventListener('click',function(e){
+    var pts=chart.getElementsAtEventForMode(e,'point',{intersect:true},false);
+    if(!pts.length)return;
+    var el=document.getElementById(sectionIds[pts[0].index]);
+    if(el){
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.style.transition='background 0.3s';
+      el.style.background='#E6F1FB';
+      setTimeout(function(){el.style.background='';},1500);
+    }
+  });
+}
+</script>
+</body>
+</html>
