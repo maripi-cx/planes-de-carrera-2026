@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación Nicole Saavedra — IC2.1 — 2026</title>
+<style>
+  #lock{position:fixed;inset:0;background:#f9f9f7;display:flex;align-items:center;justify-content:center;z-index:999}
+  #lock-box{background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:2rem;width:320px;text-align:center}
+  #lock-box p{font-size:15px;font-weight:500;color:#1a1a1a;margin-bottom:6px}
+  #lock-box small{font-size:13px;color:#888;display:block;margin-bottom:1.25rem}
+  #lock-input{width:100%;padding:10px 14px;font-size:15px;border:.5px solid #e0e0da;border-radius:8px;outline:none;text-align:center;letter-spacing:.12em;text-transform:uppercase;background:#fafafa;color:#1a1a1a;margin-bottom:10px}
+  #lock-input:focus{border-color:#185FA5}
+  #lock-btn{width:100%;padding:10px;background:#185FA5;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
+  #lock-btn:hover{background:#0C447C}
+  #lock-err{font-size:12px;color:#C62828;margin-top:8px;display:none}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f9f9f7;color:#1a1a1a;padding:2rem;max-width:820px;margin:0 auto}
+  .s{margin-bottom:2rem}
+  .sh{font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1.5px solid #e0e0da}
+  .card{background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:1rem 1.25rem}
+  .mc{background:#f5f5f2;border-radius:8px;padding:.85rem 1rem}
+  .ml{font-size:12px;color:#888;margin-bottom:3px}
+  .mv{font-size:22px;font-weight:500;color:#1a1a1a}
+  .ms{font-size:12px;color:#888;margin-top:2px}
+  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .bdg{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px}
+  .bg{background:#FFF8E1;color:#B8860B}
+  .bgg{background:#E8F5E9;color:#2E7D32}
+  .bb{background:#E6F1FB;color:#185FA5}
+  .row{display:flex;align-items:center;gap:10px}
+  .dl{font-size:13px;font-weight:500;color:#1a1a1a;min-width:240px}
+  .dbg{flex:1;height:7px;background:#f0f0ee;border-radius:4px;overflow:hidden}
+  .db{height:7px;border-radius:4px}
+  .dn{font-size:13px;font-weight:500;color:#1a1a1a;min-width:22px;text-align:right}
+  .hr{border:none;border-top:.5px solid #e8e8e4;margin:10px 0}
+  .blk{font-size:17px;font-weight:500;color:#1a1a1a;margin:14px 0 10px;border-bottom:.5px solid #e8e8e4;padding-bottom:6px}
+  .fb{font-size:13px;color:#666;line-height:1.6;border-left:2px solid #ddd;padding-left:12px;margin-top:8px}
+  .pn{width:30px;height:30px;border-radius:50%;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .p1{background:#E8F5E9;color:#2E7D32}
+  .p2{background:#FFF8E1;color:#B8860B}
+  .p3{background:#FFEBEE;color:#C62828}
+  .on{width:26px;height:26px;border-radius:50%;background:#E6F1FB;color:#185FA5;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  @media print{body{background:#fff;padding:0}canvas{max-height:280px!important}.card{break-inside:avoid}.db,.mc,.bdg{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:600px){.g4{grid-template-columns:repeat(2,1fr)}.dl{min-width:160px;font-size:12px}}
+</style>
+</head>
+<body>
+
+<div id="lock">
+  <div id="lock-box">
+    <div style="width:48px;height:48px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:22px">🔒</div>
+    <p>Evaluación Nicole Saavedra</p>
+    <small>Ingresa la clave para ver tu evaluación</small>
+    <input id="lock-input" type="password" placeholder="••••••" autocomplete="off" />
+    <button id="lock-btn" onclick="unlock()">Ver evaluación</button>
+    <div id="lock-err">Clave incorrecta. Intenta de nuevo.</div>
+  </div>
+</div>
+
+<div id="content" style="display:none">
+
+<div class="s">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem">
+    <div style="width:46px;height:46px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;color:#185FA5">NS</div>
+    <div>
+      <p style="font-size:19px;font-weight:500;margin-bottom:2px">Nicole Saavedra</p>
+      <p style="font-size:13px;color:#888"><strong>Customer Support Specialist</strong></p>
+    </div>
+    <div style="margin-left:auto"><span class="bdg bb">2026</span></div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Resumen de evaluación</p>
+  <div class="g4" style="margin-bottom:10px">
+    <div class="mc"><div class="ml">Nota final</div><div class="mv">6.30</div><div class="ms">de 11</div></div>
+    <div class="mc"><div class="ml">Bloque WORK</div><div class="mv">6.40</div><div class="ms">50% ponderación</div></div>
+    <div class="mc"><div class="ml">Bloque DELIVER</div><div class="mv">6.40</div><div class="ms">20% ponderación</div></div>
+    <div class="mc"><div class="ml">Bloque BEHAVIOR</div><div class="mv">7.20</div><div class="ms">30% ponderación</div></div>
+  </div>
+
+  <div style="background:#fff;border:.5px solid #e0e0da;border-radius:12px;padding:1.25rem;margin-bottom:10px">
+    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#aaa;margin-bottom:4px">Radar de competencias</p>
+    <p style="font-size:12px;color:#bbb;margin-bottom:1rem">Haz clic en un punto para ir al feedback</p>
+    <canvas id="radar" style="max-height:340px;cursor:pointer"></canvas>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Detalle por dimensión</p>
+  <div class="card">
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <p class="blk">WORK — 50%</p>
+
+      <div id="gestion" class="row"><span class="dl">Gestión de Soporte y autonomía</span><div class="dbg"><div class="db" style="width:54.5%;background:#B8860B"></div></div><span class="dn">6</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC2.1</span></span></div>
+      <div class="fb">Resuelves la mayoría de los casos con autonomía real y sostienes el ownership sin supervisión. El patrón que los IQS muestran de forma sostenida es que indagar en profundidad antes de responder o escalar — validar la información del cliente, confirmar qué está buscando realmente antes de proponer una solución — no siempre es el punto de partida. Resolver bien un caso y diagnosticarlo bien son cosas distintas, y la segunda es la que todavía no está instalada como estándar en cada conversación.</div>
+      <div class="hr"></div>
+
+      <div id="foco" class="row"><span class="dl">Foco en el cliente</span><div class="dbg"><div class="db" style="width:63.6%;background:#2E7D32"></div></div><span class="dn">7</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC2.2</span></span></div>
+      <div class="fb">Tu CSAT es alto y estable a lo largo del año, lo que refleja que los clientes perciben acompañamiento genuino, no solo resolución técnica. El espacio que falta es la anticipación: identificar patrones en lo que los clientes piden y ajustar las soluciones antes de que vuelvan a escribir, cerrando siempre el loop sin esperar que lo pidan. Ofrecer una experiencia que se adelanta a la necesidad siguiente es lo que distingue resolver bien de acompañar de verdad.</div>
+      <div class="hr"></div>
+
+      <div id="datos" class="row"><span class="dl">Uso de datos</span><div class="dbg"><div class="db" style="width:54.5%;background:#B8860B"></div></div><span class="dn">6</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC2.1</span></span></div>
+      <div class="fb">Cuando te propones analizar un problema, lo haces bien: identificas patrones, cuantificas y llegas a conclusiones accionables. Lo que falta es que ese enfoque opere de forma continua: usar los datos disponibles para anticipar problemas recurrentes, generar insumos para el equipo y ajustar tu propio trabajo semana a semana. El análisis puntual es valioso, pero el estándar es que los datos sean una capa permanente sobre cómo operas, no algo que se activa para proyectos específicos.</div>
+      <div class="hr"></div>
+
+      <div id="vision" class="row"><span class="dl">Visión integrada de la experiencia del cliente</span><div class="dbg"><div class="db" style="width:54.5%;background:#B8860B"></div></div><span class="dn">6</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC2.1</span></span></div>
+      <div class="fb">Tienes la capacidad de conectar lo que pasa en soporte con el impacto más amplio en el cliente y en el negocio, y lo demuestras en los análisis que has producido y cuando alertas sobre un riesgo antes de que escale. Esa visión aparece en momentos concretos, pero todavía no se traduce de forma consistente en cambios con impacto rastreable. Cerrar ese ciclo — análisis → cambio → medición — es el salto disponible.</div>
+      <div class="hr"></div>
+
+      <div id="comunicacion" class="row"><span class="dl">Comunicación y empatía</span><div class="dbg"><div class="db" style="width:63.6%;background:#2E7D32"></div></div><span class="dn">7</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC2.2</span></span></div>
+      <div class="fb">Tu tono es una fortaleza real y transversal: cercano, claro y humano, y se sostiene incluso en conversaciones difíciles. La evaluación del equipo lo confirma con los puntajes más altos de toda la 360. El crecimiento disponible está en la profundidad explicativa: los IQS muestran de forma recurrente que las respuestas describen bien los pasos a seguir, pero no siempre explican el porqué detrás de cada acción. Adaptar el nivel de detalle según el cliente y explicar la causa antes del procedimiento es lo que permite que el cliente no solo resuelva, sino que entienda y gane autonomía.</div>
+
+      <div class="hr" style="margin:12px 0 6px"></div>
+      <p class="blk">DELIVER — 20%</p>
+
+      <div id="eficiencia" class="row"><span class="dl">Eficiencia, priorización y planificación</span><div class="dbg"><div class="db" style="width:54.5%;background:#B8860B"></div></div><span class="dn">6</span><span style="min-width:52px;text-align:right"><span class="bdg bg">IC2.1</span></span></div>
+      <div class="fb">Tienes buenas prácticas de seguimiento, dejas trazabilidad en los casos y manejas bien el volumen cuando tu ritmo está calibrado. Lo que los IQS muestran de forma recurrente es que en períodos de mayor exigencia la consistencia baja: aparecen seguimientos excesivos, respuestas más extensas de lo necesario y momentos donde la priorización no estuvo alineada con lo más crítico. Gestionar proyectos con autonomía y liderar mejoras en los flujos del equipo requiere que ese orden operativo sea completamente consistente, no dependiente del contexto del mes.</div>
+      <div class="hr"></div>
+
+      <div id="agilidad" class="row"><span class="dl">Agilidad</span><div class="dbg"><div class="db" style="width:63.6%;background:#2E7D32"></div></div><span class="dn">7</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC2.2</span></span></div>
+      <div class="fb">Te adaptas bien a los cambios del producto, reaccionas rápido cuando detectás algo que puede afectar a los clientes y compartís actualizaciones de forma proactiva con el equipo. El espacio de mejora está dentro de las conversaciones: los IQS muestran momentos donde comenzaste a explicar una solución sin haber confirmado del todo el objetivo del cliente. Pivotar más rápido cuando eso pasa es el ajuste concreto disponible aquí.</div>
+
+      <div class="hr" style="margin:12px 0 6px"></div>
+      <p class="blk">BEHAVIOR — 30%</p>
+
+      <div id="cultura" class="row"><span class="dl">Cultura Chipax</span><div class="dbg"><div class="db" style="width:72.7%;background:#2E7D32"></div></div><span class="dn">8</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC2.3</span></span></div>
+      <div class="fb">Vives los valores de Chipax de forma auténtica y consistente: en cómo tratas a los clientes, cómo colaborás con el equipo y cómo asumís tu trabajo. La 360 lo confirma con los puntajes más altos y sostenidos de toda la evaluación, sin evidencia que lo contradiga. Esta dimensión está completamente consolidada. El crecimiento disponible es amplificar: que tu forma de trabajar sea una referencia consciente para quienes están creciendo en el equipo.</div>
+      <div class="hr"></div>
+
+      <div id="coachability" class="row"><span class="dl">Coachability</span><div class="dbg"><div class="db" style="width:63.6%;background:#2E7D32"></div></div><span class="dn">7</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC2.2</span></span></div>
+      <div class="fb">Recibes feedback con apertura genuina y lo aplicás con velocidad. Tu evolución entre los períodos de evaluación es la evidencia más concreta: hay dimensiones que recibían observaciones hace un año y hoy están más consolidadas. Lo que distingue el siguiente nivel es adelantarte: identificar tus propias brechas antes de que te las señalen y llegar a las conversaciones con una propuesta de cómo cerrarlas, no solo con disposición a escuchar.</div>
+      <div class="hr"></div>
+
+      <div id="equipo" class="row"><span class="dl">Trabajo en equipo</span><div class="dbg"><div class="db" style="width:63.6%;background:#2E7D32"></div></div><span class="dn">7</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC2.2</span></span></div>
+      <div class="fb">Colaboras activamente, eres un apoyo confiable y compartes información útil con el equipo de forma proactiva. Ese aporte es reconocido por las personas con quienes trabajas y aparece en la evaluación 360. Lo que la evaluación también señala es que la participación es principalmente de soporte y contribución, todavía no de conducción. Compartir conocimiento con los compañeros y asegurarse de que tengan todo lo que necesitan para resolver bien es parte del estándar: el salto está en tomar eso como responsabilidad activa, no solo como respuesta cuando alguien lo necesita.</div>
+      <div class="hr"></div>
+
+      <div id="growth" class="row"><span class="dl">Growth mindset</span><div class="dbg"><div class="db" style="width:63.6%;background:#2E7D32"></div></div><span class="dn">7</span><span style="min-width:52px;text-align:right"><span class="bdg bgg">IC2.2</span></span></div>
+      <div class="fb">Tienes curiosidad genuina y disposición real a entender los problemas en profundidad, y lo demuestras cuando produces análisis que van más allá de lo que se te pide o cuando buscas activamente feedback sobre tu trabajo. Lo que los IQS y los cafecitos muestran es que ese impulso no siempre permea la operación diaria. El estándar es que la mejora continua opere también en lo cotidiano: buscar oportunidades para aprender y mejorar tanto en proyectos como en procesos operativos, no solo cuando hay una motivación puntual que lo invite.</div>
+    </div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Top 3 prioridades este año</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p1">1</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Alcanzar y sostener un IQS sólido durante el año</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">El IQS es el espejo más directo de la calidad del trabajo diario. Las brechas que aparecen de forma recurrente — diagnóstico previo, explicar el porqué, cerrar los loops — son exactamente los ajustes que mueven el IQS de forma sostenida. La consistencia en esos puntos, mes a mes y no solo en los períodos más calmados, es lo que va a reflejar el avance de nivel.</p>
+      </div>
+    </div>
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p2">2</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Cerrar el ciclo en al menos una iniciativa de mejora</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Tienes la capacidad analítica para identificar fricciones sistémicas y la has demostrado. El paso que falta es llevar eso hasta el final: desde el análisis hasta el cambio implementado, con una métrica que confirme que funcionó. Una sola iniciativa bien cerrada este año tiene más impacto en la evaluación que varios análisis sin seguimiento.</p>
+      </div>
+    </div>
+    <div class="card row" style="align-items:flex-start">
+      <div class="pn p3">3</div>
+      <div>
+        <p style="font-size:14px;font-weight:500;margin-bottom:4px">Diseñar e implementar una acción de retención desde soporte</p>
+        <p style="font-size:13px;color:#666;line-height:1.5">Soporte tiene contacto directo con clientes en momentos críticos, pero hoy no existe una acción definida para actuar sobre esas señales antes de que el cliente decida irse. Este objetivo conecta directamente con el crecimiento del negocio y con el salto de visión integrada que distingue el nivel actual del siguiente.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s">
+  <p class="sh">Objetivos anuales 2026</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="card">
+      <div class="row" style="margin-bottom:8px"><div class="on">1</div><p style="font-size:15px;font-weight:500">Alcanzar un IQS trimestral sólido y sostenido</p></div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Alcanzar un IQS trimestral de 4,5 en Q1 y mantener o superar ese nivel en los trimestres siguientes, reduciendo la variabilidad y consolidando los ajustes de calidad señalados de forma recurrente.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Foco en el cliente / Gestión de Soporte • Revisión trimestral en 1:1 con líder</p>
+    </div>
+    <div class="card">
+      <div class="row" style="margin-bottom:8px"><div class="on">2</div><p style="font-size:15px;font-weight:500">Liderar y documentar al menos 1 iniciativa de mejora con impacto rastreable</p></div>
+      <p style="font-size:13px;color:#666;line-height:1.5">Identificar una fricción sistémica del equipo o del cliente, proponer una mejora, implementarla y medir su resultado. El ciclo completo — análisis, ejecución y medición — debe quedar documentado.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Visión integrada / Growth mindset • Revisión en Q2 y Q3 en 1:1 con líder</p>
+    </div>
+    <div class="card" style="border:.5px solid #A5D6A7;background:#F9FFF9">
+      <div class="row" style="margin-bottom:8px">
+        <div class="on" style="background:#E8F5E9;color:#2E7D32">3</div>
+        <p style="font-size:15px;font-weight:500">Diseñar e implementar una acción de retención desde soporte <span style="display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;background:#E8F5E9;color:#2E7D32;margin-left:6px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em">nuevo</span></p>
+      </div>
+      <p style="font-size:13px;color:#666;line-height:1.5">En Q1 investigar buenas prácticas de retención en soporte y presentar aprendizajes al equipo. En Q2 definir e implementar una acción concreta para mejorar la retención desde soporte. En Q3 medir sus resultados y presentarlos.</p>
+      <p style="font-size:11px;color:#aaa;margin-top:6px">Foco en el cliente / Visión integrada • Revisión trimestral en 1:1 con líder</p>
+    </div>
+  </div>
+</div>
+
+<div style="background:#FFF8E1;border:.5px solid #FFE082;border-radius:12px;padding:1.75rem 1.5rem;text-align:center">
+  <p style="font-size:22px;font-weight:500;color:#7B5800;margin-bottom:10px">Se mantiene en nivel 🎯</p>
+  <p style="font-size:42px;font-weight:500;color:#7B5800;margin-bottom:4px">IC2.1</p>
+  <p style="font-size:15px;color:#B8860B;margin-bottom:16px">Customer Support Specialist</p>
+  <div style="width:40px;height:1px;background:#FFE082;margin:0 auto 16px"></div>
+  <p style="font-size:14px;color:#7B5800;line-height:1.7;max-width:500px;margin:0 auto">Nico, esta evaluación refleja una base sólida y real en muchas dimensiones — tu CSAT, tu tono con clientes y tu capacidad analítica son evidencia concreta de eso. El nivel se sostiene porque las brechas que separan IC2.1 de IC2.2 son específicas y acotadas. El 2026 tiene foco claro: IQS sólido, una iniciativa cerrada de principio a fin y más liderazgo visible en el equipo. Tienes todo para lograrlo ✨</p>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+function unlock(){
+  var v=document.getElementById('lock-input').value.trim().toUpperCase();
+  var err=document.getElementById('lock-err');
+  if(v==='TIENDA'){
+    document.getElementById('lock').style.display='none';
+    document.getElementById('content').style.display='block';
+    initChart();
+  } else {
+    err.style.display='block';
+    document.getElementById('lock-input').value='';
+    document.getElementById('lock-input').focus();
+  }
+}
+document.getElementById('lock-input').addEventListener('keydown',function(e){if(e.key==='Enter')unlock();});
+
+var chartInit=false;
+function initChart(){
+  if(chartInit)return; chartInit=true;
+  var labels=['Gestión Soporte','Foco en cliente','Uso de datos','Visión CX','Comunicación','Eficiencia','Agilidad','Cultura Chipax','Coachability','Trabajo en equipo','Growth mindset'];
+  var sectionIds=['gestion','foco','datos','vision','comunicacion','eficiencia','agilidad','cultura','coachability','equipo','growth'];
+  var data2026=[6,7,6,6,7,6,7,8,7,7,7];
+  var data2025=[6,6,6,6,6,6,6,7,7,7,7];
+  var gridC='rgba(0,0,0,0.08)';
+  var labelC='#666';
+  var canvas=document.getElementById('radar');
+  var chart=new Chart(canvas,{
+    type:'radar',
+    data:{
+      labels:labels,
+      datasets:[
+        {label:'2026',data:data2026,borderColor:'#185FA5',backgroundColor:'rgba(24,95,165,0.12)',borderWidth:2,pointBackgroundColor:'#185FA5',pointRadius:4,pointHoverRadius:6},
+        {label:'2025',data:data2025,borderColor:'#B8860B',backgroundColor:'rgba(184,134,11,0.08)',borderWidth:1.5,borderDash:[4,3],pointBackgroundColor:'#B8860B',pointRadius:3}
+      ]
+    },
+    options:{
+      responsive:true,
+      scales:{r:{min:0,max:11,ticks:{stepSize:1,color:labelC,font:{size:10},backdropColor:'transparent'},grid:{color:gridC},angleLines:{color:gridC},pointLabels:{color:labelC,font:{size:11}}}},
+      plugins:{
+        legend:{labels:{color:labelC,font:{size:12},boxWidth:14,padding:16}},
+        tooltip:{callbacks:{title:function(items){return items[0]?items[0].label:'';}}}
+      }
+    }
+  });
+  canvas.addEventListener('click',function(e){
+    var pts=chart.getElementsAtEventForMode(e,'point',{intersect:true},false);
+    if(!pts.length)return;
+    var el=document.getElementById(sectionIds[pts[0].index]);
+    if(el){
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.style.transition='background 0.3s';
+      el.style.background='#E6F1FB';
+      setTimeout(function(){el.style.background='';},1500);
+    }
+  });
+}
+</script>
+</body>
+</html>
